@@ -122,7 +122,7 @@ class OrderMainActivity :
                     return@setOnClickListener
                 }
                 if (shopCarData?.list == null || shopCarData?.list!!.size == 0) {
-                    ToastUtils.showShort("购物车内有您想要的商品，快去挑选商品吧")
+                    ToastUtils.showShort("购物车空空如也，去挑选您喜欢的商品吧")
                     return@setOnClickListener
                 }
                 val list = shopCarData?.list
