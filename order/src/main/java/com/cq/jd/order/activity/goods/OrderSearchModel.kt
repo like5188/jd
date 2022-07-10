@@ -43,7 +43,7 @@ class OrderSearchModel(application: Application) :
         val params = HashMap<String, Any>()
         params["goods_id"] = goodsId
         params["merchant_id"] = merchantId
-        params["spec_attribute_id"] = spec_attribute_id
+        params["spec_attribute"] = spec_attribute_id
         params["join_quantity"] = join_quantity
 
         requestRs({
