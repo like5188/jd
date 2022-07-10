@@ -69,10 +69,10 @@ class OrderShopDetailActivity :
                 mDataBinding.apply {
                     ImageUtils.loadImage(it.head_pic,ivLogo)
                     tvName.text = it.title
-                    tvAddress.text = it.title
+                    tvAddress.text =  it.province+it.city+it.area+it.street
                     title= it.title
                     tvIntro.text = it.notice
-                    tvBelong.text = it.province+it.city+it.area+it.street
+                    tvBelong.text = it.title
                     ratingBar.grade = it.evaluate_score
                     tvCertificateLess.text = "已签署协议"
                     tvTextStart.text = it.evaluate_score.toString()

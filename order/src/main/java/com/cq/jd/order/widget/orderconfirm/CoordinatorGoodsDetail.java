@@ -119,6 +119,12 @@ public class CoordinatorGoodsDetail extends CoordinatorLayout {
         mActionbar = ((AppCompatActivity) mContext).getSupportActionBar();
     }
 
+
+    public CoordinatorGoodsDetail setShowIndicator(Boolean isShow){
+        banner.setIndicatorVisible(isShow);
+        return this;
+    }
+
     /**
      * 设置Toolbar标题
      *

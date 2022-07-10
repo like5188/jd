@@ -61,8 +61,8 @@ fun <T> BaseViewModel.requestRs(
             }
             try {
                 //因为要判断请求的数据结果是否成功，失败会抛出自定义异常，所以在这里try一下
-                LogUtils.e("====" + it.responseCode + "==" + it.isSuccess)
-                LogUtils.e("====" + GsonUtils.toJson(it))
+//                LogUtils.e("====" + it.responseCode + "==" + it.isSuccess)
+//                LogUtils.e("====" + GsonUtils.toJson(it))
                 if (it.isSuccess) {
                     success?.invoke(it.responseData)
                     it.responseData?.let { resData ->

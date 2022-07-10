@@ -18,7 +18,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@mipmap/indexbg"
+            android:background="@drawable/indexbg"
             app:layout_constraintDimensionRatio="w,124:360"
             app:layout_constraintTop_toTopOf="parent" />
 

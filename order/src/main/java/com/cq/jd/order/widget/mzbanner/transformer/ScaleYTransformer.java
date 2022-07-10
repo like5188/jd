@@ -9,7 +9,7 @@ import androidx.viewpager.widget.ViewPager;
  */
 
 public class ScaleYTransformer implements ViewPager.PageTransformer {
-    private static final float MIN_SCALE = 0.9F;
+    private static final float MIN_SCALE =1F;
     @Override
     public void transformPage(View page, float position) {
 

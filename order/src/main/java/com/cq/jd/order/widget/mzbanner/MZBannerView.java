@@ -129,7 +129,6 @@ public class MZBannerView<T> extends RelativeLayout {
       mIndicatorContainer = (LinearLayout) view.findViewById(R.id.banner_indicator_container);
       mViewPager = (CustomViewPager1) view.findViewById(R.id.mzbanner_vp);
       mViewPager.setOffscreenPageLimit(4);
-
       mMZModePadding = dpToPx(30);
         // 初始化Scroller
       initViewPagerScroll();

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+      <variable
+          name="tagName"
+          type="java.lang.String" />
+    </data>
+    <TextView
+        android:id="@+id/tvTagName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/order_shape_tag_bg"
+        android:layout_marginRight="@dimen/dp_10"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp"
+        android:text="@{tagName}"
+        android:textColor="#ffffaa32"
+        android:textSize="12sp" />
+</layout>

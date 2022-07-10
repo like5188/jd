@@ -19,12 +19,11 @@ class OrderGoodsDetailModel(application: Application) :
     val shopCarBeanInfo = MutableLiveData<ShopCarListBean>()
 
     fun licenseDetail(merchantId: Int) {
-
         requestRs({
             OrderNetApi.service.goodsDetail(merchantId)
         }, {
             goodsDetailInfo.value = it
-        }, loadingMessage = "登录中...")
+        })
     }
 
 
@@ -42,7 +41,7 @@ class OrderGoodsDetailModel(application: Application) :
         }, {
 //            hintMsg.value = "收藏店铺成功"
             collectMsg.value = "1"
-        }, loadingMessage = "发送中...")
+        })
     }
 
     fun removeFavorites(
@@ -56,7 +55,7 @@ class OrderGoodsDetailModel(application: Application) :
         }, {
 //            hintMsg.value = "收藏店铺成功"
             collectRemoveMsg.value = "1"
-        }, loadingMessage = "发送中...")
+        })
     }
 
     fun getShopping(merchantId: Int) {
@@ -69,7 +68,7 @@ class OrderGoodsDetailModel(application: Application) :
             OrderNetApi.service.getShopping(params)
         }, {
             shopCarBeanInfo.value = it
-        }, loadingMessage = "获取中...")
+        })
     }
 
     fun removeShopping(merchantId: Int, id: String) {
@@ -82,7 +81,7 @@ class OrderGoodsDetailModel(application: Application) :
         }, {
             getShopping(merchantId)
             hintMsg.value = "购物车商品移除成功"
-        }, loadingMessage = "移除中...")
+        })
     }
 
     fun editShopping(
@@ -121,7 +120,7 @@ class OrderGoodsDetailModel(application: Application) :
             OrderNetApi.service.saveShopping(params)
         }, {
             hintMsg.value = "商品加入成功"
-        }, loadingMessage = "发送中...")
+        })
     }
 
 }

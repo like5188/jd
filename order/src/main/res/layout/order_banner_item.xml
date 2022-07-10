@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_rangle_5dp"
     android:orientation="vertical">
-
     <com.common.library.widget.imageview.RoundedImageView
         android:id="@+id/banner_image"
         android:layout_width="match_parent"
@@ -12,7 +12,6 @@
         app:riv_oval="false"
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
-
     <FrameLayout
         android:id="@+id/flAd"
         android:visibility="gone"

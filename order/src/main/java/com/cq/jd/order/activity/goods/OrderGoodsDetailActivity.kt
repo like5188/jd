@@ -1,5 +1,4 @@
 package com.cq.jd.order.activity.goods
-
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -41,11 +40,8 @@ import com.lxj.xpopup.XPopup
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
-
 class OrderGoodsDetailActivity :
     BaseVmActivity<OrderGoodsDetailModel, OrderActivityGoodsDetailBinding>(R.layout.order_activity_goods_detail) {
-
 
     private var goodsId = 0
     private var isCollect = 0
@@ -271,6 +267,10 @@ class OrderGoodsDetailActivity :
 
     private var orderDetail: GoodsDetailInfo? = null
 
+    private val tagAdapter:TagAdapter by lazy {
+        TagAdapter()
+    }
+
     @RequiresApi(Build.VERSION_CODES.M)
     override fun createObserver() {
         mViewModel.apply {
@@ -300,6 +300,8 @@ class OrderGoodsDetailActivity :
             collectRemoveMsg.observe(this@OrderGoodsDetailActivity) {
                 mDataBinding.ivCollect.compoundDrawableTintList = null
             }
+            mDataBinding.rvTag.adapter =tagAdapter
+
             //伤品详情
             goodsDetailInfo.observe(this@OrderGoodsDetailActivity) {
                 BannerViewHolder.setPageItem(
@@ -322,8 +324,12 @@ class OrderGoodsDetailActivity :
                 mDataBinding.tvContent.text = it.remark
                 mDataBinding.tvShopName.text = it.merchant.title
                 mDataBinding.tvCommentName.text = "共有${it.evaluate_count}个消费评价"
-                mDataBinding.llTag.addView(initTagView(it.refund))
-                mDataBinding.llTag.addView(initTagView(it.payment))
+
+                tagAdapter.setNewInstance(it.payment.split(",").take(3).toMutableList())
+
+//                mDataBinding.llTag.addView(initTagView(it.refund))
+//                mDataBinding.llTag.addView(initTagView(it.payment))
+
                 val evaluate = it.evaluate
                 if (evaluate != null && evaluate.size > 0) {
                     mDataBinding.recyclerView.visibility = View.VISIBLE
