@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.cq.jd.order.activity.coupon.OrderCouponModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:background="@color/colororderbg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <include
+            layout="@layout/base_view_title" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/order_shape_titlebg_coupon"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWaitUse"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="待使用"
+                android:layout_weight="1"
+                android:textColor='@{model.tabChooseState == 0 ? @color/colorChoose : @color/colorUnChoose}'
+                android:onClick="@{(v)->model.clickWaitUse(v)}"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="1dp"
+                android:background="#DCE4ED"
+                android:layout_height="10dp"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLead"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="领券"
+                android:onClick="@{(v)->model.clickLead(v)}"
+                android:layout_weight="1"
+                android:textColor='@{model.tabChooseState == 1 ? @color/colorChoose : @color/colorUnChoose}'
+                android:textSize="16sp"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <FrameLayout
+            android:id="@+id/flChooseCoupon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

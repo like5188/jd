@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cq.jd.map">
+
+    <application>
+
+        <activity android:name=".ui.MapActivity" />
+
+
+
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="${TENCENT_MAP_KEY}"/>
+    </application>
+
+</manifest>

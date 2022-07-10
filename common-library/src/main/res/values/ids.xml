@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="statusbarutil_fake_status_bar_view" />
+    <item type="id" name="statusbarutil_translucent_view" />
+    <item name="mz_banner_item_tag" type="id"/>
+    <item name="versionchecklib_version_dialog_commit" type="id" />
+    <item name="versionchecklib_failed_dialog_retry" type="id" />
+    <item name="versionchecklib_failed_dialog_cancel" type="id" />
+    <item name="versionchecklib_version_dialog_cancel" type="id" />
+    <item name="versionchecklib_loading_dialog_cancel" type="id" />
+    <item name="immersion_status_bar_view" type="id" />
+    <item name="immersion_navigation_bar_view" type="id" />
+    <item name="immersion_fits_layout_overlap" type="id" />
+    <item name="action_bar_container" type="id" />
+    <item type="integer" name="click_limit_tag_view"/>
+</resources>

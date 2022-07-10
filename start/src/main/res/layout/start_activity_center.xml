@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <include layout="@layout/base_view_title" />
+
+        <com.common.library.widget.payview.PayTypeView
+            android:id="@+id/payTypeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

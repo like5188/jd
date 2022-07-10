@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/viewPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/viewBalancePay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/base_ic_pay_balance"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvBalanceTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="余额支付"
+                android:textColor="#ff444444"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBalance"
+                app:layout_constraintStart_toEndOf="@+id/ivBalance"
+                app:layout_constraintTop_toTopOf="@+id/ivBalance" />
+
+            <ImageView
+                android:id="@+id/ivBalanceState"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/ivBalance"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivBalance" />
+
+
+            <TextView
+                android:id="@+id/tv_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="余额 ¥150.00"
+                android:textColor="@color/color_999"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tvBalanceTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvBalanceTitle" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="当前余额不足，请另行选择支付方式"
+                android:textColor="@color/color_red"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_balance"
+                app:layout_constraintTop_toBottomOf="@+id/tv_balance" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/viewScorePay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/base_ic_pay_score"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvScoreTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="积分支付"
+                android:textColor="#ff444444"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivScore"
+                app:layout_constraintStart_toEndOf="@+id/ivScore"
+                app:layout_constraintTop_toTopOf="@+id/ivScore" />
+
+            <ImageView
+                android:id="@+id/ivScoreState"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/ivScore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivScore" />
+
+
+            <TextView
+                android:id="@+id/tv_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="剩余积分 ¥150.00"
+                android:textColor="@color/color_999"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tvScoreTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvScoreTitle" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="当前剩余积分不足，请另行选择支付方式"
+                android:textColor="@color/color_red"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_score"
+                app:layout_constraintTop_toBottomOf="@+id/tv_score" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/viewBlendPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/base_ic_pay_balance" />
+
+            <TextView
+                android:id="@+id/tvBlend"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="余额+积分"
+                android:textColor="#ff444444"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/ivBlendState"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/viewBankPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/base_ic_pay_bank" />
+
+            <TextView
+                android:id="@+id/tvBank"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="银行支付"
+                android:textColor="#ff444444"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/ivBankState"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/viewWxPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/base_ic_pay_wx" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="微信支付"
+                android:textColor="#ff444444"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/ivWxState"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/viewAliPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/base_ic_pay_ali" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:text="支付宝支付"
+                android:textColor="#ff444444"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/ivAliState"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="15dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

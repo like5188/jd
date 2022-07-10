@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="丽枫酒店(重庆江北国际机场T3航站楼店)"
+            android:textColor="@color/color_132"
+            android:textSize="16sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:maxLines="3"
+            android:text="重庆服装城大道48号国际重庆服装城大道48号国际家纺城B8栋1层家纺城B8栋1层重庆服装城大道48号国际家纺城B8栋1层"
+            android:textColor="@color/color_666"
+            android:textSize="14sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvDistance"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_goneMarginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:maxLines="3"
+            android:text="11M"
+            android:textColor="@color/color_666"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAddress"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stateListAnimator="@drawable/appbarlayout_elevated"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingtoolbarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="#FFAA32"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#FFAA32"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintDimensionRatio="w,122:360"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Space
+                    android:id="@+id/spTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:layout_constraintBottom_toBottomOf="@id/imageview" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/order_shape_titlebg_corner_top"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:paddingTop="20dp"
+                    app:layout_constraintTop_toTopOf="@id/spTop">
+
+                    <com.common.library.widget.imageview.RoundedImageView
+                        android:id="@+id/ivGoodsCover"
+                        android:scaleType="centerCrop"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/order_shape_oval_gray"
+                        app:riv_oval="true" />
+
+                    <TextView
+                        android:id="@+id/tvShopName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="华莱士"
+                        android:textColor="#ff13202d"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center"
+                app:layout_collapseMode="pin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="确认订单"
+                    android:textColor="#ffffffff"
+                    android:textSize="18sp" />
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+</merge>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.cq.jd.map.ui.MapViewModel" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <include layout="@layout/base_view_title" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/base_shape_f5_30dp"
+                android:gravity="center_vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/map_ic_more"
+                    android:drawablePadding="5dp"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:singleLine="true"
+                    android:text="重庆"
+                    android:textColor="@color/color_132"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="14dp"
+                    android:background="@color/colorEditHint"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/edtInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:drawableStart="@mipmap/map_ic_search"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/color_666"
+                    android:hint="请输入你的收货地址"
+                    android:inputType="text"
+                    android:paddingVertical="10dp"
+                    android:singleLine="true"
+                    android:text="@={model.keyPwd}"
+                    android:textColor="@color/color_132"
+                    android:textColorHint="@color/colorEditHint"
+                    android:textSize="14sp" />
+
+                <!--                <TextView-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="10dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:background="@null"-->
+                <!--                    android:drawableStart="@mipmap/map_ic_search"-->
+                <!--                    android:drawablePadding="10dp"-->
+                <!--                    android:drawableTint="@color/color_666"-->
+                <!--                    android:hint="请输入你的收货地址"-->
+                <!--                    android:paddingVertical="10dp"-->
+                <!--                    android:singleLine="true"-->
+                <!--                    android:textColor="@color/color_132"-->
+                <!--                    android:textColorHint="@color/colorEditHint"-->
+                <!--                    android:textSize="14sp" />-->
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:id="@+id/tvCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:paddingVertical="10dp"
+                android:singleLine="true"
+                android:text="取消"
+                android:textColor="@color/color_132"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/viewMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="5">
+
+                <com.tencent.tencentmap.mapsdk.maps.MapView
+                    android:id="@+id/map_frag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+                <ImageView
+                    android:id="@+id/ivReset"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@mipmap/map_ic_location_reset"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/flContainer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:visibility="visible" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/keyRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="10dp" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

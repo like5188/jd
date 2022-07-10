@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/order_shape_titlebg_coupon"
+        android:paddingStart="10dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="证件名称"
+                android:textColor="#ff13202d"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:textColor="#ff13202d"
+                android:textSize="16sp"
+                tools:text="许可证1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/ll1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="有  效  期"
+                android:textColor="#ff13202d"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:textColor="#5013202D"
+                android:textSize="16sp"
+                tools:text="2012-12-12" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ivName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/ll2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="证件正面照"
+            android:textColor="#ff13202d"
+            android:textSize="16sp" />
+
+        <com.common.library.widget.imageview.RoundedImageView
+            android:id="@+id/ivPic"
+            android:layout_width="match_parent"
+            android:layout_marginStart="85dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/ivName"
+            android:layout_marginEnd="85dp"
+            app:layout_constraintDimensionRatio="w,12:17"
+            app:riv_oval="false"
+            app:riv_corner_radius="5dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/order_shape_btn_gray_corner_5"
+            android:layout_height="0dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

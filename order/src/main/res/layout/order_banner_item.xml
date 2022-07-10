@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.common.library.widget.imageview.RoundedImageView
+        android:id="@+id/banner_image"
+        android:layout_width="match_parent"
+        app:riv_corner_radius="5dp"
+        app:riv_oval="false"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <FrameLayout
+        android:id="@+id/flAd"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

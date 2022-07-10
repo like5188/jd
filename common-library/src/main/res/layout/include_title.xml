@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <View
+        android:id="@+id/statusBarView"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"/>
+
+    <ImageView
+        android:id="@+id/ic_arrow_left"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusBarView"
+        android:padding="15dp"
+        android:src="@mipmap/ic_arrow_left"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/ic_arrow_left"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="登录"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ic_arrow_left"
+        android:textColor="#ff000000"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/tvBtnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/ic_arrow_left"
+        android:visibility="invisible"
+        tools:text="登录"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ic_arrow_left"
+        android:textColor="#FF6632"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/ic_arrow_left"
+        android:alpha="0.15"
+        android:visibility="gone"
+        android:background="@color/black"
+        android:layout_height="0.5dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

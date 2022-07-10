@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_top_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:textSize="18sp"
+        android:text="1234"
+        android:textColor="#13202D"
+        android:gravity="center"/>
+
+</RelativeLayout>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/viewPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/base_ic_pay_balance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="余额支付"
+            android:textColor="#ff444444"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivLogo"
+            app:layout_constraintStart_toEndOf="@+id/ivLogo"
+            app:layout_constraintTop_toTopOf="@+id/ivLogo" />
+
+        <ImageView
+            android:id="@+id/ivState"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/base_shape_circle_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/ivLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivLogo" />
+
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="余额 ¥150.00"
+            android:textColor="@color/color_999"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="当前余额不足，请另行选择支付方式"
+            android:textColor="@color/color_red"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/tv_money"
+            app:layout_constraintTop_toBottomOf="@+id/tv_money" />
+
+        <!--        <androidx.constraintlayout.widget.Group-->
+        <!--            android:id="@+id/group"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:constraint_referenced_ids="tv_,tv_Hint"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tv_hint,ivLogo" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/color_f5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_hint"
+            app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

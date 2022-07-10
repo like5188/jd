@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/order_shape_titlebg_coupon"
+    android:layout_width="wrap_content"
+    android:paddingHorizontal="10dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvShare"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:drawablePadding="10dp"
+        android:drawableStart="@mipmap/icsharet"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:text="分享"
+        android:textColor="#ff13202d"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/tvTs"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@mipmap/ictst"
+        android:drawablePadding="10dp"
+        android:paddingBottom="20dp"
+        android:gravity="center"
+        android:text="投诉"
+        android:textColor="#ff13202d"
+        android:textSize="14sp" />
+
+</LinearLayout>

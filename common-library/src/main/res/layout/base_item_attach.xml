@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableRight="@mipmap/base_ic_select_circle"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="@dimen/dp_10"
+    android:paddingVertical="10dp"
+    android:text="test"
+    android:textColor="@color/base_select_blue_132_color"
+    android:textSize="14sp">
+
+
+</androidx.appcompat.widget.AppCompatTextView>

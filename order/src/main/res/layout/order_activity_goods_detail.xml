@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.cq.jd.order.activity.goods.OrderGoodsDetailModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colororderbg"
+        android:orientation="vertical">
+
+        <com.cq.jd.order.widget.orderconfirm.CoordinatorGoodsDetail
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/order_shape_titlebg_coupon"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.common.library.widget.imageview.RoundedImageView
+                                android:id="@+id/ivGoodsCover"
+                                android:layout_width="30dp"
+                                android:scaleType="centerCrop"
+                                android:layout_height="30dp"
+                                android:background="@drawable/order_shape_oval_gray"
+                                app:riv_oval="true" />
+
+                            <TextView
+                                android:id="@+id/tvShopName"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:drawableEnd="@mipmap/ic_next"
+                                android:textColor="#ff13202d"
+                                android:textSize="14sp"
+                                tools:text="华莱士" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvGoodsName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            tools:text="健身游泳10次卡"
+                            android:textColor="#ff13202d"
+                            android:textSize="16sp" />
+
+                        <LinearLayout
+                            android:id="@+id/llInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center_vertical|bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="￥"
+                                android:textColor="#E51600"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tvSinglePrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textColor="#E51600"
+                                android:textSize="16sp" />
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="10dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="月销量"
+                                android:textColor="#ff13202d"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="0"
+                                android:textColor="#ff13202d"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/llTag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/order_shape_titlebg_coupon"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="优惠券"
+                                android:textColor="#ff13202d"
+                                android:textSize="16sp" />
+
+
+                            <TextView
+                                android:id="@+id/tvCouponName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:drawableEnd="@mipmap/ic_next"
+                                android:drawablePadding="10dp"
+                                android:gravity="center|end"
+                                android:hint="点击去领取"
+                                android:textColor="#ff13202d"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="用户评价"
+                                android:textColor="#ff13202d"
+                                android:textSize="16sp" />
+
+
+                            <TextView
+                                android:id="@+id/tvCommentName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:drawablePadding="10dp"
+                                android:drawableEnd="@mipmap/ic_next"
+                                android:gravity="center|end"
+                                android:hint="共有0个消费评价"
+                                android:textColor="#ff13202d"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:nestedScrollingEnabled="false" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/order_shape_titlebg_coupon"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="15dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="产品介绍"
+                            android:textColor="#ff13202d"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="产品描述:"
+                            android:textColor="#ff13202d"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvContent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:lineSpacingExtra="10dp"
+                            android:textColor="#ff13202d"
+                            android:textSize="14sp"
+                            tools:text="健身房内游泳池不限时游泳次卡，仅限10次" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <RelativeLayout
+                android:id="@+id/llShopCar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="56dp">
+
+                <ImageView
+                    android:id="@+id/ivSp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@mipmap/iv_shopcar" />
+
+                <TextView
+                    android:id="@+id/tvShopNum"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignEnd="@id/ivSp"
+                    android:background="@drawable/order_shape_shop_car_num"
+                    android:gravity="center"
+                    android:textColor="#ffffffff"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+        </com.cq.jd.order.widget.orderconfirm.CoordinatorGoodsDetail>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/ivCostomer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:drawableTop="@mipmap/iccustomer"
+                android:text="客服"
+                android:gravity="center"
+                android:textColor="#ff13202d"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/ivCollect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="30dp"
+                android:drawableTop="@mipmap/icollectvus"
+                android:text="收藏"
+                android:textColor="#ff13202d"
+                android:textSize="12sp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="10dp"
+                android:layout_weight="40" />
+
+            <TextView
+                android:id="@+id/tvAddShopCar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="108"
+                android:background="@drawable/order_shape_btn_corder_5"
+                android:gravity="center"
+                android:paddingVertical="8dp"
+                android:text="加入购物车"
+                android:textColor="#ffffffff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvNowBuy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="108"
+                android:background="@drawable/order_shape_red_btn_corder_5"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:text="立即购买"
+                android:textColor="#ffffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

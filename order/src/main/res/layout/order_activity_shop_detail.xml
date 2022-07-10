@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.cq.jd.order.activity.shop.OrderShopDetailModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colororderbg"
+        android:orientation="vertical">
+
+        <include layout="@layout/base_view_title" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/order_shape_titlebg_coupon"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="20dp">
+
+            <com.common.library.widget.imageview.RoundedImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/order_shape_btn_gray_corner_5"
+                app:layout_constraintStart_toStartOf="parent"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="5dp"
+                app:riv_oval="false" />
+
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="#ff13202d"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/ivCollect"
+                app:layout_constraintStart_toEndOf="@id/ivLogo"
+                app:layout_constraintTop_toTopOf="@id/ivLogo"
+                tools:text="海派健身" />
+
+            <ImageView
+                android:id="@+id/ivCollect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icollect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivLogo" />
+
+            <LinearLayout
+                android:id="@+id/llStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/ivLogo">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="综合评分"
+                    android:textColor="#ff13202d"
+                    android:textSize="16sp" />
+
+                <com.common.library.widget.SimpleRatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:isEdit="false"
+                    android:layout_marginStart="12dp"
+                    app:gradeHeight="16dp"
+                    app:gradeWidth="16dp" />
+
+                <TextView
+                    android:id="@+id/tvTextStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="#ffffaa32"
+                    android:textSize="18sp"
+                    tools:text="4.3" />
+
+                <TextView
+                    android:id="@+id/tvStartLv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="#ffffaa32"
+                    android:textSize="18sp"
+                    tools:text="高" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tvDes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:lineSpacingExtra="5dp"
+                android:textColor="#4013202d"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/llStart"
+                android:text="由简兑天衡评估，含品质、物流、售后等多项内容，星星越多体验越好。" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tvDes">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="店铺介绍"
+                    android:textColor="#4013202d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:lineSpacingExtra="3dp"
+                    android:textColor="#ff13202d"
+                    android:textSize="14sp"
+                    tools:text="本健身房都是90后年轻团队，致力解决您的体重体型烦恼，您的健康是我们追求的终极目标！" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/order_shape_titlebg_coupon"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="基础信息"
+                android:textColor="#ff13202d"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="掌柜名"
+                    android:textColor="#ff13202d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvBelong"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textColor="#ff13202d"
+                    android:textSize="14sp"
+                    tools:text="Vivian" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所在地"
+                    android:textColor="#ff13202d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textColor="#ff13202d"
+                    android:textSize="14sp"
+                    tools:text="Vivian" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="资质"
+                    android:textColor="#ff13202d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvCertificateLess"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textColor="#ff13202d"
+                    android:textSize="14sp"
+                    tools:text="Vivian" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCertificate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingTop="16dp"
+                android:textColor="#ff13202d"
+                android:drawableEnd="@mipmap/ic_next"
+                android:textSize="14sp"
+                android:text="企业资质" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</layout>

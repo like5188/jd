@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.cq.jd.order.activity.goods.OrderConfirmModel" />
+    </data>
+
+    <com.cq.jd.order.widget.orderconfirm.CoordinatorOrderConfirm
+        android:id="@+id/mCoordinatorTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".OrderMainActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/order_shape_titlebg_corner_bottom"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="优惠活动"
+                            android:textColor="#ff13202d"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvCoupon"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@mipmap/ic_next"
+                            android:drawablePadding="10dp"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:hint="请选择优惠券"
+                            android:textColor="#ffe31e09"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="备注"
+                            android:textColor="#ff13202d"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/etDes"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="end"
+                            android:hint="请输入文字"
+                            android:maxLines="1"
+                            android:textColor="#ffe31e09"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/order_shape_titlebg_coupon"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="合计"
+                            android:textColor="#ff13202d"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvTotalPrice"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="0.00"
+                            android:textColor="#ffe31e09"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="支付方式"
+                            android:textColor="#ff13202d"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvPayType"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableEnd="@mipmap/ic_next"
+                            android:drawablePadding="10dp"
+                            android:gravity="end"
+                            android:hint="请选择支付方式"
+                            android:textColor="#ffe31e09"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tvPayOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginHorizontal="80dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/order_shape_btn"
+                    android:gravity="center"
+                    android:text="提交订单"
+                    android:textColor="#ffffffff"
+                    android:textSize="18sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </com.cq.jd.order.widget.orderconfirm.CoordinatorOrderConfirm>
+</layout>

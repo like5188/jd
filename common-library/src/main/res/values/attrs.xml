@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="riv_corner_radius" format="dimension" />
+        <attr name="riv_corner_radius_top_left" format="dimension" />
+        <attr name="riv_corner_radius_top_right" format="dimension" />
+        <attr name="riv_corner_radius_bottom_left" format="dimension" />
+        <attr name="riv_corner_radius_bottom_right" format="dimension" />
+        <attr name="riv_border_width" format="dimension" />
+        <attr name="riv_border_color" format="color" />
+        <attr name="riv_mutate_background" format="boolean" />
+        <attr name="riv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+        <attr name="riv_tile_mode">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="riv_tile_mode_x">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="riv_tile_mode_y">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="StrokeTextView">
+        <!-- 自定义的属性名称 和对应的单位 -->
+        <attr name="outerColor" format="color|reference" />
+        <attr name="innnerColor" format="color|reference" />
+        <attr name="outerBorderSize" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="EmptyView">
+        <!-- Shared attributes -->
+        <attr name="ev_transition">
+            <enum name="slide" value="1" />
+            <enum name="explode" value="2" />
+            <enum name="fade" value="3" />
+            <enum name="auto" value="4" />
+        </attr>
+        <attr name="ev_gravity">
+            <enum name="top" value="48" />
+            <enum name="center" value="17" />
+            <enum name="bottom" value="80" />
+        </attr>
+        <attr name="ev_font" format="reference" />
+        <attr name="ev_titleTextSize" format="dimension" />
+        <attr name="ev_textSize" format="dimension" />
+        <attr name="ev_buttonTextSize" format="dimension" />
+
+        <!-- Loading state attributes -->
+        <attr name="ev_loading_type">
+            <enum name="circular" value="1" />
+        </attr>
+        <attr name="ev_loading_title" format="string" />
+        <attr name="ev_loading_titleTextColor" format="color" />
+        <attr name="ev_loading_text" format="string" />
+        <attr name="ev_loading_textColor" format="color" />
+        <attr name="ev_loading_drawable" format="reference" />
+        <attr name="ev_loading_drawableTint" format="color" />
+        <attr name="ev_loading_backgroundColor" format="color" />
+
+        <!-- Empty state attributes -->
+        <attr name="ev_empty_title" format="string" />
+        <attr name="ev_empty_titleTextColor" format="color" />
+        <attr name="ev_empty_text" format="string" />
+        <attr name="ev_empty_textColor" format="color" />
+        <attr name="ev_empty_button" format="string" />
+        <attr name="ev_empty_buttonTextColor" format="color" />
+        <attr name="ev_empty_buttonBackgroundColor" format="color" />
+        <attr name="ev_empty_drawable" format="reference" />
+        <attr name="ev_empty_drawableTint" format="color" />
+        <attr name="ev_empty_backgroundColor" format="color" />
+
+        <!-- Error state attributes -->
+        <attr name="ev_error_title" format="string" />
+        <attr name="ev_error_titleTextColor" format="color" />
+        <attr name="ev_error_text" format="string" />
+        <attr name="ev_error_textColor" format="color" />
+        <attr name="ev_error_button" format="string" />
+        <attr name="ev_error_buttonTextColor" format="color" />
+        <attr name="ev_error_buttonBackgroundColor" format="color" />
+        <attr name="ev_error_drawable" format="reference" />
+        <attr name="ev_error_drawableTint" format="color" />
+        <attr name="ev_error_backgroundColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="MZBannerView">
+        <attr name="open_mz_mode" format="boolean" />
+        <attr name="canLoop" format="boolean" />
+        <attr name="indicatorPaddingLeft" format="dimension" />
+        <attr name="indicatorPaddingRight" format="dimension" />
+        <attr name="indicatorPaddingTop" format="dimension" />
+        <attr name="indicatorPaddingBottom" format="dimension" />
+        <attr name="indicatorAlign">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="middle_page_cover" format="boolean" />
+    </declare-styleable>
+
+    <!--仿淘宝头条 向上滚动视图——双行-->
+    <declare-styleable name="MarqueeViewUp">
+        <attr name="isSetAlphaAnim" format="boolean" /><!--是否显示淡入淡出动画-->
+        <attr name="interval" format="integer" /><!--切换间隔时间-->
+        <attr name="animDuration" format="integer" /><!--动画时间-->
+    </declare-styleable>
+
+    <declare-styleable name="RingProgressBar">
+        <attr name="ringColor" format="color" />
+        <attr name="ringProgressColor" format="color" />
+        <attr name="ringWidth" format="dimension" />
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="max" format="integer" />
+        <attr name="textIsShow" format="boolean" />
+        <attr name="progress" format="integer" />
+        <attr name="ringPadding" format="dimension" />
+        <attr name="style">
+            <enum name="STROKE" value="0" />
+            <enum name="FILL" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="ArrowItemView">
+        <attr name="arrowItemTitle" format="string|reference" />
+        <attr name="arrowItemTitleColor" format="color|reference" />
+        <attr name="arrowItemTitleSize" format="dimension|reference" />
+        <attr name="arrowItemContent" format="string|reference" />
+        <attr name="arrowItemContentColor" format="color|reference" />
+        <attr name="arrowItemContentSize" format="dimension|reference" />
+        <attr name="arrowItemShowDivider" format="boolean" />
+        <attr name="arrowItemShowArrow" format="boolean" />
+        <attr name="arrowItemShowAvatar" format="boolean" />
+        <attr name="arrowItemAvatarSrc" format="reference" />
+        <attr name="arrowItemAvatarHeight" format="dimension|reference" />
+        <attr name="arrowItemAvatarWidth" format="dimension|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomImageView">
+        <attr name="ease_border_color" format="color" />
+        <attr name="ease_border_width" format="dimension" />
+        <attr name="ease_press_alpha" format="integer" />
+        <attr name="ease_press_color" format="color" />
+        <attr name="ease_radius" format="dimension" />
+        <attr name="ease_shape_type" format="enum">
+            <enum name="none" value="0" />
+            <enum name="round" value="1" />
+            <enum name="rectangle" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ScrollTextView">
+        <attr name="clickEnable" format="boolean" />
+        <attr name="isHorizontal" format="boolean" />
+        <attr name="speed" format="integer" />
+        <attr name="text" format="string" />
+        <attr name="text_color" format="color" />
+        <attr name="text_size" format="dimension" />
+        <attr name="times" format="integer" />
+        <attr name="isScrollForever" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TextBannerViewStyle">
+        <attr name="setInterval" format="integer|reference" />
+        <attr name="setAnimDuration" format="integer|reference" />
+        <attr name="setTextSize" format="dimension|reference" />
+        <attr name="setTextColor" format="color|reference" />
+        <attr name="setSingleLine" format="boolean" />
+
+        <attr name="setFlags">
+            <enum name="strike" value="0" />
+            <enum name="underline" value="1" />
+        </attr>
+        <attr name="setGravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="setDirection">
+            <enum name="bottom_to_top" value="0" />
+            <enum name="top_to_bottom" value="1" />
+            <enum name="right_to_left" value="2" />
+            <enum name="left_to_right" value="3" />
+        </attr>
+        <attr name="setTypeface">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="italic_bold" value="3" />
+        </attr>
+    </declare-styleable>
+
+
+    <!-- 自定义评分控件 -->
+    <declare-styleable name="SimpleRatingBar">
+        <!-- 当前星等级 -->
+        <attr name="grade" format="float" />
+        <!-- 星星总数量 -->
+        <attr name="gradeCount" format="integer" />
+        <!-- 星星的宽度 -->
+        <attr name="gradeWidth" format="dimension" />
+        <!-- 星星的高度 -->
+        <attr name="gradeHeight" format="dimension" />
+        <!-- 星星之间的间隔 -->
+        <attr name="gradeSpace" format="dimension" />
+        <!-- 星星选择跨度 -->
+        <attr name="gradeStep" format="enum">
+            <!-- 半颗星 -->
+            <enum name="half" value="0x00" />
+            <!-- 一颗星 -->
+            <enum name="one" value="0x01" />
+        </attr>
+        <attr name="isEdit" format="boolean" />
+        <!-- 默认的星星图标 -->
+        <attr name="normalDrawable" format="reference" />
+        <!-- 半颗的星星图标 -->
+        <attr name="halfDrawable" format="reference" />
+        <!-- 选中的星星图标 -->
+        <attr name="fillDrawable" format="reference" />
+    </declare-styleable>
+
+    <!--    字母选择组件-->
+    <declare-styleable name="SideBarView">
+        <attr name="sidebarSelectTextColor" format="color|reference" />
+        <attr name="sidebarUnSelectTextColor" format="color|reference" />
+        <attr name="sidebarSelectTextSize" format="dimension" />
+        <attr name="sidebarUnSelectTextSize" format="dimension" />
+
+        <attr name="sidebarWordBackground" format="reference" />
+        <attr name="sidebarWordTextColor" format="color|reference" />
+        <attr name="sidebarWordTextSize" format="dimension" />
+
+        <attr name="is_auto_play" format="boolean" />
+        <attr name="scroll_time" format="integer" />
+
+    </declare-styleable>
+</resources>

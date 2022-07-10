@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/order_shape_dialog_bottom_bg"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="购物车"
+            android:textColor="#ff13202d"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTotalNum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(共0件商品)"
+            android:textColor="#ff395877"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.common.library.widget.imageview.RoundedImageView
+            android:id="@+id/ivGoodsCover"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/order_shape_oval_gray"
+            app:riv_oval="true" />
+
+        <TextView
+            android:id="@+id/tvShopName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="#ff13202d"
+            android:textSize="14sp"
+            tools:text="华莱士" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_weight="1" />
+
+
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewShopCar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="共计"
+            android:textColor="#ff13202d"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="0.00"
+            android:textColor="#ffe51600"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="元"
+            android:textColor="#ff13202d"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tvTotalNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="共0件商品"
+            android:textColor="#ff395877"
+            android:textSize="14sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvNowBuy"
+            android:layout_width="100dp"
+            android:layout_height="42dp"
+            android:background="@drawable/order_shape_btn"
+            android:gravity="center"
+            android:text="去结算"
+            android:textColor="#ffffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

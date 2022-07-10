@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--  这里设置开屏页的背景颜色  -->
+    <item android:drawable="@color/white" />
+
+    <item>
+        <!--    这里设置开屏页需要显示的 LOGO   -->
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/ic_app_logo" />
+
+    </item>
+</layer-list>

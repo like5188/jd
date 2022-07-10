@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tvAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@mipmap/ic_next"
+            android:drawableTint="@color/color_132"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp"
+            android:text="首页"
+            android:textColor="@color/color_132"
+            android:textSize="14sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

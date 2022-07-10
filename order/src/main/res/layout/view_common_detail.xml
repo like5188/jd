@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="false">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:fitsSystemWindows="false"
+        android:layout_width="match_parent"
+        android:stateListAnimator="@drawable/appbarlayout_elevated"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingtoolbarlayout"
+            android:layout_width="match_parent"
+            android:fitsSystemWindows="false"
+            android:layout_height="wrap_content"
+
+            app:statusBarScrim="@color/colorMain"
+            app:contentScrim="@color/colororderbg"
+            android:elevation="0dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:fitsSystemWindows="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageview"
+                    android:layout_width="match_parent"
+                    android:fitsSystemWindows="false"
+                    android:layout_height="0dp"
+                    android:background="#FFAA32"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintDimensionRatio="w,102:360"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Space
+                    android:id="@+id/spTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:layout_constraintBottom_toBottomOf="@id/imageview" />
+
+                <com.cq.jd.order.widget.mzbanner.MZBannerView
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    app:canLoop="true"
+                    app:layout_constraintDimensionRatio="w,15:34"
+                    app:layout_constraintTop_toTopOf="@id/spTop"
+                    app:open_mz_mode="true" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="20dp"
+                android:fitsSystemWindows="false"
+                android:elevation="0dp"
+                app:navigationIcon="@mipmap/icbackwhite"
+                android:navigationIcon="@mipmap/icbackwhite"
+                app:titleMargin="15dp"
+                android:gravity="center"
+                android:background="@color/colorMain"
+                app:layout_collapseMode="pin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="商品详情"
+                    android:textColor="#ffffffff"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/ivMore"
+                    android:layout_width="wrap_content"
+                    android:padding="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/ic_share_more"
+                    android:layout_height="wrap_content"/>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+</merge>

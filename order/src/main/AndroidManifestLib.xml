@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cq.jd.order">
+
+    <application>
+        <activity
+            android:name=".OrderMainActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name="com.cq.jd.order.activity.comment.OrderGoodsCommentActivity"/>
+        <activity android:name="com.cq.jd.order.activity.coupon.OrderCouponActivity"/>
+        <activity android:name="com.cq.jd.order.activity.shop.OrderShopCertificateActivity"/>
+        <activity android:name="com.cq.jd.order.activity.goods.OrderRecommendActivity"/>
+        <activity android:name="com.cq.jd.order.activity.goods.OrderGoodsDetailActivity"/>
+        <activity android:name="com.cq.jd.order.activity.goods.OrderSearchActivity"/>
+        <activity android:name="com.cq.jd.order.activity.goods.OrderConfirmActivity"/>
+        <activity android:name="com.cq.jd.order.activity.shop.OrderShopDetailActivity"/>
+        <activity android:name="com.cq.jd.order.activity.complaint.OrderShopComplaintActivity"/>
+        <activity android:name="com.cq.jd.order.activity.complaint.OrderCommodityComplaintActivity"/>
+        <activity android:name="com.cq.jd.order.activity.complaint.OrderCommodityComplaintActivity"/>
+    </application>
+
+</manifest>

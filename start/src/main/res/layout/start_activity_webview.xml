@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <FrameLayout
+            android:id="@+id/base_tool_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tool_height">
+
+                <TextView
+                    android:id="@+id/titleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginEnd="45dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/color_333"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:onClick="backClick"
+                    android:padding="9dp"
+                    android:src="@mipmap/base_icon_back_black" />
+
+                <ImageView
+                    android:id="@+id/btn_close"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="9dp"
+                    android:src="@mipmap/base_icon_web_close"
+                    android:visibility="visible"
+                    app:tint="@color/color_333" />
+
+                <TextView
+                    android:id="@+id/tvOther"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="取消"
+                    android:textColor="#ff999999"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/webView1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header">
+
+
+        </FrameLayout>
+
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:progressDrawable="@drawable/start_bg_horizontal_progressbar"
+            app:layout_constraintTop_toBottomOf="@+id/base_tool_view" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

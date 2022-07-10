@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.cq.jd.order.OrderMainModel" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+    </data>
+
+    <com.cq.jd.order.widget.coordinatortablayout.CoordinatorTabLayout
+        android:id="@+id/mCoordinatorTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colororderbg"
+        android:elevation="0dp"
+        tools:context=".OrderMainActivity">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <RelativeLayout
+            android:id="@+id/llShopCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="56dp">
+
+            <ImageView
+                android:id="@+id/ivSp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@mipmap/iv_shopcar" />
+
+            <TextView
+                android:id="@+id/tvShopNum"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignEnd="@id/ivSp"
+                android:background="@drawable/order_shape_shop_car_num"
+                android:text="1"
+                android:gravity="center"
+                android:textColor="#ffffffff"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+
+    </com.cq.jd.order.widget.coordinatortablayout.CoordinatorTabLayout>
+</layout>

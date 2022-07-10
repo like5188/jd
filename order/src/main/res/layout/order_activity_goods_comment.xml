@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.cq.jd.order.activity.comment.OrderGoodsCommentModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colororderbg">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@mipmap/indexbg"
+            app:layout_constraintDimensionRatio="w,124:360"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/order_base_view_title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/order_shape_titlebg_coupon"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    app:tabSelectedTextColor="#13202D"
+                    app:tabTextColor="#13202D"
+                    app:tabMode="scrollable"
+                    app:tabIndicatorHeight="0dp"
+                    android:layout_height="wrap_content">
+
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

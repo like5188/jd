@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/dialog_modal_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="15dp"
+        android:text="@string/date_cancel"
+        android:textColor="@color/color_132"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/dialog_modal_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:singleLine="true"
+        android:textColor="#FF666666"
+        android:textSize="18sp"
+        tools:text="@android:string/untitled" />
+
+    <TextView
+        android:id="@+id/dialog_modal_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:paddingStart="20dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="15dp"
+        android:text="@string/date_confirm"
+        android:textColor="@color/color_yellow"
+        android:textSize="18sp" />
+
+
+</FrameLayout>
