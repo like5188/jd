@@ -78,7 +78,6 @@ data class Recommend(
     val new_product: Int,
     val num_read: Int,
     val number: String,
-    val payment: String,
     val price: String,
     val refund: String,
     val refund_immediately: Int,

@@ -18,7 +18,6 @@ data class ClsGoodsBean(
     val new_product: Int,
     val num_read: Int,
     val number: String,
-    val payment: String,
     var price: String,
     val refund: String,
     val refund_immediately: Int,
@@ -37,7 +36,7 @@ data class ClsGoodsBean(
     constructor() : this(
         emptyList(), "","","","","",0,
         "","",0,0,0,0,0,"",
-        "","","",0,"",0,"",
+        "","",0,"",0,"",
         emptyList(),0, emptyList(),0,0,0,""
     ) {
 

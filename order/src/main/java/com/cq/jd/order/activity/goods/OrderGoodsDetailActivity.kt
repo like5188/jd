@@ -323,7 +323,9 @@ class OrderGoodsDetailActivity :
                 mDataBinding.tvShopName.text = it.merchant.title
                 mDataBinding.tvCommentName.text = "共有${it.evaluate_count}个消费评价"
                 mDataBinding.llTag.addView(initTagView(it.refund))
-                mDataBinding.llTag.addView(initTagView(it.payment))
+                it.payment_data.forEach {
+                    mDataBinding.llTag.addView(initTagView(it))
+                }
                 val evaluate = it.evaluate
                 if (evaluate != null && evaluate.size > 0) {
                     mDataBinding.recyclerView.visibility = View.VISIBLE
