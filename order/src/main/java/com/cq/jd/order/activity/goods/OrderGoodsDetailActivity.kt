@@ -33,10 +33,12 @@ import com.cq.jd.order.entities.ClsGoodsBean
 import com.cq.jd.order.entities.EvaluateBean
 import com.cq.jd.order.entities.GoodsDetailInfo
 import com.cq.jd.order.entities.ShopCarListBean
+import com.cq.jd.order.util.EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS
 import com.cq.jd.order.widget.mzbanner.BannerViewHolder
 import com.cq.jd.share.ShareUtil
 import com.google.android.material.appbar.AppBarLayout
 import com.gyf.immersionbar.ImmersionBar
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.lxj.xpopup.XPopup
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -252,6 +254,10 @@ class OrderGoodsDetailActivity :
         }
 
         initAdapter()
+
+        LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this){
+            mViewModel.getShopping(merchantId)
+        }
     }
 
     override fun onResume() {
