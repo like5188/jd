@@ -9,7 +9,7 @@ data class ShopDetailBean(
     val auto_order: Int,
     val average: Double,
     val city: String,
-    val classify: List<ShopGoodsClassify>,
+//    val classify: List<ShopGoodsClassify>,
     val close: Int,
     val share: ShareBean,
     val contacts_name: String,
@@ -63,7 +63,7 @@ data class ShopGoodsClassify(
 ):Serializable
 
 data class Recommend(
-    val classify: List<ShopGoodsClassify>,
+//    val classify: List<ShopGoodsClassify>,
     val cost_price: String,
     val cover: String,
     val create_at: String,

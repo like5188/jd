@@ -17,7 +17,7 @@ data class CouponWaitUseBean(
 
 data class Coupon(
     val available_quantity: Int,
-    val classify: String,
+//    val classify: String,
     val content: String,
     val create_at: String,
     val deleted: Int,
