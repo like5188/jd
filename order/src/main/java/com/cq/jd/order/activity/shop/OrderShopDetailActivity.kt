@@ -74,7 +74,7 @@ class OrderShopDetailActivity :
                     tvIntro.text = it.notice
                     tvBelong.text = it.province+it.city+it.area+it.street
                     ratingBar.grade = it.evaluate_score
-                    tvCertificateLess.text = "已签署协议"
+                    tvCertificateLess.text = "已签署消保协议"
                     tvTextStart.text = it.evaluate_score.toString()
                     tvStartLv.text = when {
                         it.evaluate_score >=4 -> {
