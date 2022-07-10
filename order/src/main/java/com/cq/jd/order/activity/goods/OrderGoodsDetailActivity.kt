@@ -91,8 +91,8 @@ class OrderGoodsDetailActivity :
                     }
                 }
                 dialogShopCar?.setOnConfirmListener(object : DialogShopCar.OnConfirmNumListener {
-                    override fun onConfirm(id: Int, num: Int, callback:(Boolean)->Unit) {
-                        mViewModel.editShopping(id, num){
+                    override fun onConfirm(id: Int, num: Int, callback: (Boolean) -> Unit) {
+                        mViewModel.editShopping(id, num) {
                             callback(it)
                         }
                     }
@@ -143,36 +143,40 @@ class OrderGoodsDetailActivity :
                 startActivity(intent)
             }
 
-            tvNowBuy.setOnClickListener {//立即购买
-                if (clsGoodsBean == null) {
-                    return@setOnClickListener
-                }
-                val dialogChooseGoodsType = DialogChooseGoodsType(this@OrderGoodsDetailActivity)
-                dialogChooseGoodsType.show()
-                dialogChooseGoodsType.apply {
-                    setUiData(clsGoodsBean!!)
-                    setOnConfirmListener(object :
-                        DialogChooseGoodsType.OnAddShopCarResultListener {
-                        override fun onResult(type: Int, ids: String, num: Int) {
-                            if (type == 1) {//购物车
-                                mViewModel.saveShopping(goodsId, merchantId, ids, num.toString())
-                            } else {
-                                val intent =
-                                    Intent(
-                                        this@OrderGoodsDetailActivity,
-                                        OrderConfirmActivity::class.java
-                                    )
-                                intent.putExtra("goodsId", goodsId)
-                                intent.putExtra("merchantId", merchantId)
-                                intent.putExtra("ids", ids)
-                                intent.putExtra("num", num)
-                                startActivity(intent)
+            val l: View.OnClickListener = object : View.OnClickListener {
+                override fun onClick(p0: View?) {
+                    if (clsGoodsBean == null) {
+                        return
+                    }
+                    val dialogChooseGoodsType = DialogChooseGoodsType(this@OrderGoodsDetailActivity)
+                    dialogChooseGoodsType.show()
+                    dialogChooseGoodsType.apply {
+                        setUiData(clsGoodsBean!!)
+                        setOnConfirmListener(object :
+                            DialogChooseGoodsType.OnAddShopCarResultListener {
+                            override fun onResult(type: Int, ids: String, num: Int) {
+                                if (type == 1) {//购物车
+                                    mViewModel.saveShopping(goodsId, merchantId, ids, num.toString())
+                                } else {
+                                    val intent =
+                                        Intent(
+                                            this@OrderGoodsDetailActivity,
+                                            OrderConfirmActivity::class.java
+                                        )
+                                    intent.putExtra("goodsId", goodsId)
+                                    intent.putExtra("merchantId", merchantId)
+                                    intent.putExtra("ids", ids)
+                                    intent.putExtra("num", num)
+                                    startActivity(intent)
+                                }
                             }
-                        }
-                    })
+                        })
+                    }
                 }
-
             }
+            tvAddShopCar.setOnClickListener(l) // 加入购物车
+            tvNowBuy.setOnClickListener(l)//立即购买
+
             headerLayout.ivMore.setOnClickListener {
                 if (orderDetail == null) {
                     return@setOnClickListener
@@ -192,7 +196,7 @@ class OrderGoodsDetailActivity :
                                                 32
                                             )
                                         }
-                                    }.onSuccess {it1->
+                                    }.onSuccess { it1 ->
 
                                         ShareUtil.shareWebUrl(
                                             this@OrderGoodsDetailActivity,
@@ -255,7 +259,7 @@ class OrderGoodsDetailActivity :
 
         initAdapter()
 
-        LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this){
+        LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this) {
             mViewModel.getShopping(merchantId)
         }
     }
