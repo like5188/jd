@@ -29,7 +29,7 @@
         android:gravity="start"
         android:maxLines="1"
         android:textColor="#13202d"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@id/ivClose"
         app:layout_constraintStart_toEndOf="@id/ivLogo"
         app:layout_constraintTop_toTopOf="@id/ivLogo"
@@ -50,7 +50,7 @@
         android:lines="2"
         android:text="1人份"
         android:textColor="#6513202d"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@id/ivLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/tvTitle" />
@@ -80,7 +80,7 @@
             android:layout_weight="1"
             android:text="0.00"
             android:textColor="#13202d"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/tvSub"
@@ -96,7 +96,7 @@
             android:layout_marginEnd="10dp"
             android:text="1"
             android:textColor="#6513202d"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/tvAdd"
