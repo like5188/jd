@@ -131,7 +131,13 @@ class DialogChooseGoodsType(context: Context) : BaseDialog(context) {
         try {
             ImageUtils.loadImage(clsGoodsBean.cover, ivLogo)
             tvSinglePrice?.text = clsGoodsBean.price
-            val specAttribute = clsGoodsBean.spec_attribute
+            val specAttribute = clsGoodsBean.spec_attribute.apply {
+                forEach {
+                    it.data.forEach {
+                        it.choose = 0
+                    }
+                }
+            }
             val mTypeAdapter =
                 object :
                     BaseQuickAdapter<GoodsSpecAttribute, BaseViewHolder>(R.layout.order_item_type_cls1) {
