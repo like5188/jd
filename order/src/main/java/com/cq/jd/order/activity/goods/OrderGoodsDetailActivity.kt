@@ -44,7 +44,7 @@ class OrderGoodsDetailActivity :
     BaseVmActivity<OrderGoodsDetailModel, OrderActivityGoodsDetailBinding>(R.layout.order_activity_goods_detail) {
 
     private var goodsId = 0
-    private var isCollect = 0
+//    private var isCollect = 0
     private var merchantId = 0
     private var clsGoodsBean: ClsGoodsBean? = null
     private var shopCarData: ShopCarListBean? = null
@@ -99,13 +99,12 @@ class OrderGoodsDetailActivity :
                 if (orderDetail == null) {
                     return@setOnClickListener
                 }
-                if (isCollect == 1) {
+                if (mViewModel.collectStatus.value!= "0") {
                     mViewModel.removeFavorites(goodsId)
                 } else {
                     mViewModel.saveFavorites(goodsId, orderDetail?.title!!)
                 }
             }
-
             tvCouponName.setOnClickListener {//优惠券
                 startActivity(
                     Intent(
@@ -293,15 +292,22 @@ class OrderGoodsDetailActivity :
                     mDataBinding.tvShopNum.visibility = View.INVISIBLE
                 }
             }
-            collectMsg.observe(this@OrderGoodsDetailActivity) {
-                mDataBinding.ivCollect.compoundDrawableTintList =
-                    ColorStateList.valueOf(Color.parseColor("#FFAA32"))
+            collectStatus.observe(this@OrderGoodsDetailActivity){
+                if(it=="0"){
+                    mDataBinding.ivCollect.compoundDrawableTintList = null
+                }else{
+                    mDataBinding.ivCollect.compoundDrawableTintList =
+                        ColorStateList.valueOf(Color.parseColor("#FFAA32"))
+                }
             }
-            collectRemoveMsg.observe(this@OrderGoodsDetailActivity) {
-                mDataBinding.ivCollect.compoundDrawableTintList = null
-            }
+//            collectMsg.observe(this@OrderGoodsDetailActivity) {
+//                mDataBinding.ivCollect.compoundDrawableTintList =
+//                    ColorStateList.valueOf(Color.parseColor("#FFAA32"))
+//            }
+//            collectRemoveMsg.observe(this@OrderGoodsDetailActivity) {
+//                mDataBinding.ivCollect.compoundDrawableTintList = null
+//            }
             mDataBinding.rvTag.adapter =tagAdapter
-
             //伤品详情
             goodsDetailInfo.observe(this@OrderGoodsDetailActivity) {
                 BannerViewHolder.setPageItem(
@@ -309,7 +315,6 @@ class OrderGoodsDetailActivity :
                     mDataBinding.headerLayout.banner, it.slider
                 )
                 orderDetail = it
-                isCollect = it.is_favorites
                 clsGoodsBean = ClsGoodsBean()
                 clsGoodsBean?.price = it.price
                 clsGoodsBean?.spec_attribute = it.spec_attribute
@@ -324,12 +329,9 @@ class OrderGoodsDetailActivity :
                 mDataBinding.tvContent.text = it.remark
                 mDataBinding.tvShopName.text = it.merchant.title
                 mDataBinding.tvCommentName.text = "共有${it.evaluate_count}个消费评价"
-
-                tagAdapter.setNewInstance(it.payment.split(",").take(3).toMutableList())
-
+                tagAdapter.setNewInstance(it.payment_data.take(3).toMutableList())
 //                mDataBinding.llTag.addView(initTagView(it.refund))
 //                mDataBinding.llTag.addView(initTagView(it.payment))
-
                 val evaluate = it.evaluate
                 if (evaluate != null && evaluate.size > 0) {
                     mDataBinding.recyclerView.visibility = View.VISIBLE

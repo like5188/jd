@@ -328,27 +328,26 @@
 
             <TextView
                 android:id="@+id/tvAddShopCar"
-                android:layout_width="0dp"
+                android:layout_width="108dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="108"
                 android:background="@drawable/order_shape_btn_corder_5"
                 android:gravity="center"
-                android:paddingVertical="8dp"
+                android:paddingVertical="7dp"
                 android:text="加入购物车"
+                android:textStyle="bold"
                 android:textColor="#ffffffff"
                 android:textSize="16sp" />
-
             <TextView
                 android:id="@+id/tvNowBuy"
-                android:layout_width="0dp"
+                android:layout_width="92dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_weight="108"
+                android:paddingVertical="7dp"
                 android:background="@drawable/order_shape_red_btn_corder_5"
                 android:gravity="center"
-                android:paddingVertical="10dp"
                 android:text="立即购买"
+                android:textStyle="bold"
                 android:textColor="#ffffffff"
                 android:textSize="16sp" />
 

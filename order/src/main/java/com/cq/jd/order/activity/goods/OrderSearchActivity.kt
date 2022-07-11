@@ -131,7 +131,7 @@ class OrderSearchActivity :
                 if (shopDetailBean == null){
                     return@setOnClickListener
                 }
-                if (shopDetailBean?.is_favorites ==1){
+                if (shopDetailBean?.favorites !="0"){
                     mViewModel.removeFavorites(indexId)
                 }else{
                     mViewModel.saveFavorites(indexId, shopDetailBean?.title!!)
@@ -165,10 +165,10 @@ class OrderSearchActivity :
                 mCoordinatorTabLayout.tvName.text = this.title
                 mCoordinatorTabLayout.tvDistance.text = "${this.distance / 1000}km"
                 mCoordinatorTabLayout.tvYyTime.text = this.operation_at.toString()
-                mCoordinatorTabLayout.tvNum.text = "月销量${this.sales_volume}"
+                mCoordinatorTabLayout.tvNum.text = "销量${this.sales_volume}"
                 mCoordinatorTabLayout.getsRating().grade = this.evaluate_score
                 mCoordinatorTabLayout.tvSinglePrice.text = "${this.average}/人"
-                if (this.is_favorites == 1) {
+                if (this.favorites!= "0") {
                     mCoordinatorTabLayout.ivCollect.imageTintList =
                         ColorStateList.valueOf(Color.parseColor("#FFAA32"))
                 } else {
@@ -291,12 +291,13 @@ class OrderSearchActivity :
     override fun createObserver() {
 
         mViewModel.apply {
-            collectMsg.observe(this@OrderSearchActivity) {
-                mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList =
-                    ColorStateList.valueOf(Color.parseColor("#FFAA32"))
-            }
-            collectRemoveMsg.observe(this@OrderSearchActivity) {
-                mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList = null
+            collectStatus.observe(this@OrderSearchActivity) {
+                if(it!="0"){
+                    mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList =
+                        ColorStateList.valueOf(Color.parseColor("#FFAA32"))
+                }else{
+                    mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList = null
+                }
             }
             //伤品搜素
             listClsGoods.observe(this@OrderSearchActivity) {

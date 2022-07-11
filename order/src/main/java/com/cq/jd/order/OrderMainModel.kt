@@ -20,9 +20,7 @@ class OrderMainModel(application: Application) :
     val shopDetailInfo = MutableLiveData<ShopDetailBean>()
     val shopCarBeanInfo = MutableLiveData<ShopCarListBean>()
     val listClsGoods = MutableLiveData<List<ShopGoodsClassify>>()
-    var collectMsg = StringLiveData()
-    var collectRemoveMsg = StringLiveData()
-
+    var collectStatus = StringLiveData()
     fun shopDetail(merchantId: Int) {
         val locationService =
             ARouter.getInstance().build(ARouterPath.Map.LOCATION_SERVICE)
@@ -37,6 +35,7 @@ class OrderMainModel(application: Application) :
         requestRs({
             OrderNetApi.service.merchantDetail(params)
         }, {
+            collectStatus.value =it.favorites
             shopDetailInfo.value = it
         }, loadingMessage = "数据接收中...")
     }
@@ -86,13 +85,14 @@ class OrderMainModel(application: Application) :
         val params = HashMap<String, Any>()
         params["type"] = 0
         params["data_id"] = merchantId
-        params["keyword"] = ""
+        params["keyword"] = keyword
+//        params["keyword"] = ""
 
         requestRs({
             OrderNetApi.service.saveFavorites(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectMsg.value = "1"
+            collectStatus.value =it.id
         }, loadingMessage = "发送中...")
     }
 
@@ -104,12 +104,11 @@ class OrderMainModel(application: Application) :
         val params = HashMap<String, Any>()
         params["id"] = id
         params["join_quantity"] = join_quantity
-
         requestRs({
             OrderNetApi.service.editShopping(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectMsg.value = "1"
+//            collectMsg.value = "1"
             completed?.invoke(true)
         }, error = {
             completed?.invoke(false)
@@ -117,16 +116,15 @@ class OrderMainModel(application: Application) :
     }
 
     fun removeFavorites(
-        merchantId: Int
+        merchantId: String
     ) {
         val params = HashMap<String, Any>()
         params["id"] = merchantId
-
         requestRs({
             OrderNetApi.service.removeFavorites(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectRemoveMsg.value = "1"
+            collectStatus.value = "0"
         }, loadingMessage = "发送中...")
     }
 

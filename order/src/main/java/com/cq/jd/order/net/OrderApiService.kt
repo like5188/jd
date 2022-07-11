@@ -1,6 +1,7 @@
 package com.cq.jd.order.net
 
 import com.common.library.bean.PayTypeBean
+import com.cq.jd.order.activity.goods.GoodsCollectionInfo
 import com.cq.jd.order.entities.*
 import com.zhw.http.ApiResponse
 import retrofit2.http.*
@@ -54,11 +55,11 @@ interface OrderApiService {
 
     @POST("/favorites/mall/save")
     @FormUrlEncoded
-    suspend fun saveFavorites(@FieldMap map: HashMap<String, Any>): ApiResponse<Any> //商户详情-收藏
+    suspend fun saveFavorites(@FieldMap map: HashMap<String, Any>): ApiResponse<GoodsCollectionInfo> //商户详情-收藏
 
-    @POST("/favorites/mall/remove")
-    @FormUrlEncoded
-    suspend fun removeFavorites(@FieldMap map: HashMap<String, Any>): ApiResponse<Any> //商户详情-收藏
+    @GET("/favorites/mall/remove")
+//    @FormUrlEncoded
+    suspend fun removeFavorites(@QueryMap map: HashMap<String, Any>): ApiResponse<Any> //商户详情-收藏
 
     @POST("/user/mall/checkPayPassword")
     @FormUrlEncoded

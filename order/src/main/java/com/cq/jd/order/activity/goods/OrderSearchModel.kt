@@ -16,10 +16,7 @@ class OrderSearchModel(application: Application) :
 
     val listClsGoods = MutableLiveData<List<ClsGoodsBean>>()
     val shopCarBeanInfo = MutableLiveData<ShopCarListBean>()
-    var collectMsg = StringLiveData()
-    var collectRemoveMsg = StringLiveData()
-
-
+    var collectStatus = StringLiveData()
     fun goodsList(title: String, merchantId: Int, page: Int) {
         val params = HashMap<String, Any>()
         params["merchant_id"] = merchantId
@@ -92,7 +89,7 @@ class OrderSearchModel(application: Application) :
             OrderNetApi.service.saveFavorites(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectMsg.value = "1"
+            collectStatus.value = it.id
         }, loadingMessage = "发送中...")
     }
 
@@ -106,7 +103,7 @@ class OrderSearchModel(application: Application) :
             OrderNetApi.service.removeFavorites(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectRemoveMsg.value = "1"
+            collectStatus.value = "0"
         }, loadingMessage = "发送中...")
     }
 
@@ -123,7 +120,7 @@ class OrderSearchModel(application: Application) :
             OrderNetApi.service.editShopping(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectMsg.value = "1"
+//            collectMsg.value = "1"
             completed?.invoke(true)
         }, error = {
             completed?.invoke(false)

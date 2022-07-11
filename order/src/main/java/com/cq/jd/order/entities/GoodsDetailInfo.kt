@@ -17,7 +17,8 @@ data class GoodsDetailInfo(
     val merchant_id: Int,
     val new_product: Int,
     val num_read: Int,
-    val is_favorites: Int,
+//    val is_favorites: Int,
+    val favorites: Int=0,
     val number: String,
     val payment: String,
     val price: String,
@@ -34,6 +35,7 @@ data class GoodsDetailInfo(
     val stock_sales: Int,
     val merchant: MerchantBean,
     val evaluate: List<EvaluateBean>,
+    val payment_data:List<String>,
     val stock_virtual: Int,
     val title: String
 )
@@ -51,7 +53,7 @@ data class EvaluateBean(
     val create_at: String,
     val deleted: Int,
     val deleted_at: String,
-    val goods_id: Int,
+//    val goods_id: Int,
     val id: Int,
     val identity: Int,
     val is_reply: Int,

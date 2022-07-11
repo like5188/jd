@@ -18,7 +18,6 @@ class OrderShopDetailModel(application: Application) :
 
     var collectMsg = StringLiveData()
     var collectRemoveMsg = StringLiveData()
-
     val shopDetailInfo = MutableLiveData<ShopDetailBean>()
 
     //        fun clickCertificate(){

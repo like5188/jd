@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -34,6 +35,13 @@ public class ImageUtils {
 
 
     public static void loadImage(String url, ImageView iv) {
+        if(TextUtils.isEmpty(url)){
+            iv.setVisibility(View.INVISIBLE);
+            return;
+        }
+        if(iv.getVisibility()!=View.VISIBLE){
+            iv.setVisibility(View.VISIBLE);
+        }
         if (!isHttp(url)) {
             Glide.with(BaseApp.application)
                     .applyDefaultRequestOptions(new RequestOptions()

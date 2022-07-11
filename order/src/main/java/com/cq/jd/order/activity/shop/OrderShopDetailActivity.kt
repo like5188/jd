@@ -23,7 +23,7 @@ class OrderShopDetailActivity :
     BaseVmActivity<OrderShopDetailModel, OrderActivityShopDetailBinding>(R.layout.order_activity_shop_detail) {
 
     private var merchantId = 0
-    private var is_favorites = 0
+    private var is_favorites ="0"
     private var title = ""
 
     override fun initWidget(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class OrderShopDetailActivity :
             if(TextUtils.isEmpty(title)){
                 return@setOnClickListener
             }
-            if (is_favorites ==1){
+            if (is_favorites !="0"){
                 mViewModel.removeFavorites(merchantId)
             }else{
                 mViewModel.saveFavorites(merchantId,title)
@@ -74,7 +74,7 @@ class OrderShopDetailActivity :
                     tvIntro.text = it.notice
                     tvBelong.text = it.title
                     ratingBar.grade = it.evaluate_score
-                    tvCertificateLess.text = "已签署协议"
+                    tvCertificateLess.text = it.qualifications
                     tvTextStart.text = it.evaluate_score.toString()
                     tvStartLv.text = when {
                         it.evaluate_score >=4 -> {
@@ -87,8 +87,8 @@ class OrderShopDetailActivity :
                             "低"
                         }
                     }
-                    is_favorites = it.is_favorites
-                    if (it.is_favorites == 1) {
+                    is_favorites = it.favorites
+                    if (it.favorites !="0") {
                         ivCollect.imageTintList =
                             ColorStateList.valueOf(Color.parseColor("#FFAA32"))
                     } else {

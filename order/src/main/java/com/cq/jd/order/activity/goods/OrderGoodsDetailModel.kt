@@ -2,6 +2,7 @@ package com.cq.jd.order.activity.goods
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import com.common.library.liveData.IntLiveData
 import com.common.library.liveData.StringLiveData
 import com.common.library.ui.requestRs
 import com.common.library.viewModel.BaseViewModel
@@ -14,14 +15,17 @@ class OrderGoodsDetailModel(application: Application) :
     BaseViewModel(application) {
 
     val goodsDetailInfo = MutableLiveData<GoodsDetailInfo>()
-    var collectMsg = StringLiveData()
-    var collectRemoveMsg = StringLiveData()
-    val shopCarBeanInfo = MutableLiveData<ShopCarListBean>()
 
+//    var collectMsg = StringLiveData()
+//    var collectRemoveMsg = StringLiveData()
+    val collectStatus = StringLiveData()
+
+    val shopCarBeanInfo = MutableLiveData<ShopCarListBean>()
     fun licenseDetail(merchantId: Int) {
         requestRs({
             OrderNetApi.service.goodsDetail(merchantId)
         }, {
+            collectStatus.value = it.favorites.toString()
             goodsDetailInfo.value = it
         })
     }
@@ -40,7 +44,7 @@ class OrderGoodsDetailModel(application: Application) :
             OrderNetApi.service.saveFavorites(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectMsg.value = "1"
+            collectStatus.value = it.id
         })
     }
 
@@ -49,12 +53,12 @@ class OrderGoodsDetailModel(application: Application) :
     ) {
         val params = HashMap<String, Any>()
         params["id"] = merchantId
-
         requestRs({
             OrderNetApi.service.removeFavorites(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectRemoveMsg.value = "1"
+            collectStatus.value="0"
+//            collectRemoveMsg.value = "1"
         })
     }
 
@@ -97,7 +101,7 @@ class OrderGoodsDetailModel(application: Application) :
             OrderNetApi.service.editShopping(params)
         }, {
 //            hintMsg.value = "收藏店铺成功"
-            collectMsg.value = "1"
+//            collectMsg.value = "1"
             completed?.invoke(true)
         }, error = {
             completed?.invoke(false)

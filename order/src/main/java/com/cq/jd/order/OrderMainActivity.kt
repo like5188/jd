@@ -197,19 +197,19 @@ class OrderMainActivity :
                 }
                 popupGoodsMenu.showAsDropDown(it1)
             }
+
+
             mDataBinding.mCoordinatorTabLayout.ivCollect.setOnClickListener {
                 if (shopDetailBean == null) {
                     return@setOnClickListener
                 }
-                if (shopDetailBean?.is_favorites == 1) {
-                    mViewModel.removeFavorites(indexId)
+                if (mViewModel.collectStatus.value !="0") {
+                    mViewModel.removeFavorites(mViewModel.collectStatus.value!!)
                 } else {
                     mViewModel.saveFavorites(indexId, shopDetailBean?.title!!)
                 }
             }
         }
-
-
         initRecommendAdapter()
     }
 
@@ -222,12 +222,13 @@ class OrderMainActivity :
     override fun createObserver() {
         mViewModel.apply {
             //收藏
-            collectMsg.observe(this@OrderMainActivity) {
-                mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList =
-                    ColorStateList.valueOf(Color.parseColor("#FFAA32"))
-            }
-            collectRemoveMsg.observe(this@OrderMainActivity) {
-                mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList = null
+            collectStatus.observe(this@OrderMainActivity){
+                if(it!="0"){
+                    mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList =
+                        ColorStateList.valueOf(Color.parseColor("#FFAA32"))
+                }else{
+                    mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList = null
+                }
             }
             //购物车
             shopCarBeanInfo.observe(this@OrderMainActivity) {
@@ -251,13 +252,14 @@ class OrderMainActivity :
                 //头部信息
                 ImageUtils.loadImage(it.head_pic, mDataBinding.mCoordinatorTabLayout.imageView)
                 ImageUtils.loadImage(it.logo, mDataBinding.mCoordinatorTabLayout.ivLogo)
+//                ImageUtils.loadImage(it.head_pic, mDataBinding.mCoordinatorTabLayout.ivLogo)
                 mDataBinding.mCoordinatorTabLayout.tvName.text = it.title
                 mDataBinding.mCoordinatorTabLayout.tvDistance.text = "${it.distance / 1000}km"
                 mDataBinding.mCoordinatorTabLayout.tvYyTime.text = it.operation_at.toString()
-                mDataBinding.mCoordinatorTabLayout.tvNum.text = "月销量${it.sales_volume}"
+                mDataBinding.mCoordinatorTabLayout.tvNum.text = "销量${it.sales_volume}"
                 mDataBinding.mCoordinatorTabLayout.getsRating().grade = it.evaluate_score
                 mDataBinding.mCoordinatorTabLayout.tvSinglePrice.text = "${it.average}/人"
-                if (it.is_favorites == 1) {
+                if (it.favorites !="0") {
                     mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList =
                         ColorStateList.valueOf(Color.parseColor("#FFAA32"))
                 } else {
