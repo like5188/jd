@@ -65,6 +65,7 @@
                         app:riv_corner_radius="5dp"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:scaleType="fitXY"
                         android:background="@drawable/order_shape_btn_gray_corner_5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

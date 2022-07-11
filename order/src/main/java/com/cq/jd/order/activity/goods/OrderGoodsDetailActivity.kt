@@ -102,7 +102,7 @@ class OrderGoodsDetailActivity :
                     return@setOnClickListener
                 }
                 if (mViewModel.collectStatus.value!= "0") {
-                    mViewModel.removeFavorites(goodsId)
+                    mViewModel.removeFavorites(mViewModel.collectStatus.value!!)
                 } else {
                     mViewModel.saveFavorites(goodsId, orderDetail?.title!!)
                 }
@@ -114,7 +114,6 @@ class OrderGoodsDetailActivity :
                         OrderCouponActivity::class.java
                     )
                 )
-
             }
             tvShopName.setOnClickListener {//商铺详情
                 if (merchantId == 0) {

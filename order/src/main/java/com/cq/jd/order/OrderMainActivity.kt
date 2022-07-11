@@ -256,8 +256,10 @@ class OrderMainActivity :
             shopDetailInfo.observe(this@OrderMainActivity) {
                 shopDetailBean = it
                 //头部信息
-                ImageUtils.loadImage(it.head_pic, mDataBinding.mCoordinatorTabLayout.imageView)
-                ImageUtils.loadImage(it.logo, mDataBinding.mCoordinatorTabLayout.ivLogo)
+                if(!it.environment_pic.isNullOrEmpty()){
+                    ImageUtils.loadImage(it.environment_pic[0], mDataBinding.mCoordinatorTabLayout.imageView)
+                }
+                ImageUtils.loadImage(it.head_pic, mDataBinding.mCoordinatorTabLayout.ivLogo)
 //                ImageUtils.loadImage(it.head_pic, mDataBinding.mCoordinatorTabLayout.ivLogo)
                 mDataBinding.mCoordinatorTabLayout.tvName.text = it.title
                 mDataBinding.mCoordinatorTabLayout.tvDistance.text = "${it.distance / 1000}km"

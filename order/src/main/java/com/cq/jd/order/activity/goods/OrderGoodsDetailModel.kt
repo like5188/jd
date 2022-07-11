@@ -51,7 +51,7 @@ class OrderGoodsDetailModel(application: Application) :
     }
 
     fun removeFavorites(
-        merchantId: Int
+        merchantId: String
     ) {
         val params = HashMap<String, Any>()
         params["id"] = merchantId
@@ -128,7 +128,5 @@ class OrderGoodsDetailModel(application: Application) :
             hintMsg.value = "商品加入成功"
             LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).post(0)
         }, loadingMessage = "发送中...")
-        })
     }
-
 }
