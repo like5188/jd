@@ -1,72 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?><!-- 描述: -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="showSelectUi"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="selectedIndex"
+            type="androidx.databinding.ObservableInt" />
+
         <variable
             name="model"
             type="com.cq.jd.order.activity.coupon.OrderCouponModel" />
     </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:background="@color/colororderbg"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="@color/colororderbg">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/base_tool_view"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tool_height"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <include
-            layout="@layout/base_view_title" />
+            <ImageView
+                android:id="@+id/tool_btn_back"
+                android:layout_width="@dimen/tool_height"
+                android:layout_height="@dimen/tool_height"
+                android:padding="12dp"
+                android:src="@mipmap/base_icon_back_black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/ll_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tool_titleView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@{selectedIndex==0?`商城优惠券`:`逛街优惠券`}"
+                    android:textColor="@color/color_132"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:src="@{showSelectUi?@drawable/icon_arrow_up:@drawable/icon_arrow_down}" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
+            android:id="@+id/ll_tab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/order_shape_titlebg_coupon"
             android:gravity="center_vertical"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/base_tool_view">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvWaitUse"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
+                android:onClick="@{(v)->model.clickWaitUse(v)}"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
                 android:text="待使用"
-                android:layout_weight="1"
                 android:textColor='@{model.tabChooseState == 0 ? @color/colorChoose : @color/colorUnChoose}'
-                android:onClick="@{(v)->model.clickWaitUse(v)}"
-                android:textSize="16sp"
-                android:layout_height="wrap_content"/>
+                android:textSize="16sp" />
 
             <View
                 android:layout_width="1dp"
-                android:background="#DCE4ED"
-                android:layout_height="10dp"/>
+                android:layout_height="10dp"
+                android:background="#DCE4ED" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvLead"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
+                android:onClick="@{(v)->model.clickLead(v)}"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
                 android:text="领券"
-                android:onClick="@{(v)->model.clickLead(v)}"
-                android:layout_weight="1"
                 android:textColor='@{model.tabChooseState == 1 ? @color/colorChoose : @color/colorUnChoose}'
-                android:textSize="16sp"
-                android:layout_height="wrap_content"/>
+                android:textSize="16sp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <FrameLayout
             android:id="@+id/flChooseCoupon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_tab" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_select"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/color_29132"
+            android:orientation="vertical"
+            android:visibility="@{showSelectUi?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/base_tool_view"
+            tools:visibility="visible">
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <TextView
+                android:id="@+id/tv_select_0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="商城优惠券"
+                android:textColor="@{selectedIndex==0?@color/color_328:@color/color_132}"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_select_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:src="@drawable/icon_dot_blue"
+                android:visibility="@{selectedIndex==0?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_select_0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_select_0"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="#33527BA4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tv_select_0" />
+
+            <TextView
+                android:id="@+id/tv_select_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="逛街优惠券"
+                android:textColor="@{selectedIndex==1?@color/color_328:@color/color_132}"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <ImageView
+                android:id="@+id/iv_select_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:src="@drawable/icon_dot_blue"
+                android:visibility="@{selectedIndex==1?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_select_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_select_1"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

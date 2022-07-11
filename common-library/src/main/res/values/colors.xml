@@ -32,6 +32,8 @@
     <color name="color_f5">#f5f5f5</color>
     <color name="color_132">#13202D</color>
     <color name="color_black">#000000</color>
+    <color name="color_328">#3287FF</color>
+    <color name="color_29132">#2913202D</color>
 
     <color name="colorEditHint">#4c395877</color>
     <color name="colorDivider">@color/color_f5</color>

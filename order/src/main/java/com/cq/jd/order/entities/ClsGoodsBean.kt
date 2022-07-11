@@ -3,7 +3,7 @@ package com.cq.jd.order.entities
 import java.io.Serializable
 
 data class ClsGoodsBean(
-    var classify: List<ShopGoodsClassify>,
+//    var classify: List<ShopGoodsClassify>,
     val cost_price: String,
     var cover: String,
     val create_at: String,
@@ -18,7 +18,6 @@ data class ClsGoodsBean(
     val new_product: Int,
     val num_read: Int,
     val number: String,
-    val payment: String,
     var price: String,
     val refund: String,
     val refund_immediately: Int,
@@ -35,9 +34,9 @@ data class ClsGoodsBean(
     val title: String
 ) {
     constructor() : this(
-        emptyList(), "","","","","",0,
+        "","","","","",0,
         "","",0,0,0,0,0,"",
-        "","","",0,"",0,"",
+        "","",0,"",0,"",
         emptyList(),0, emptyList(),0,0,0,""
     ) {
 

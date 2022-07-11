@@ -26,7 +26,7 @@ data class ShopCarInfo(
 )
 
 data class Goods(
-    val classify: List<ShopGoodsClassify>,
+//    val classify: List<ShopGoodsClassify>,
     val cost_price: String,
     val cover: String,
     val create_at: String,
@@ -41,7 +41,6 @@ data class Goods(
     val new_product: Int,
     val num_read: Int,
     val number: String,
-    val payment: String,
     val price: String,
     val refund: String,
     val refund_immediately: Int,
@@ -66,7 +65,7 @@ data class Merchant(
     val auto_order: Int,
     val average: Int,
     val city: String,
-    val classify: List<ShopGoodsClassify>,
+//    val classify: List<ShopGoodsClassify>,
     val close: Int,
     val contacts_name: String,
     val contacts_order_phone: String,

@@ -10,6 +10,8 @@ import com.cq.jd.order.entities.GoodsDetailInfo
 import com.cq.jd.order.entities.LicenseInfoBean
 import com.cq.jd.order.entities.ShopCarListBean
 import com.cq.jd.order.net.OrderNetApi
+import com.cq.jd.order.util.EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS
+import com.jeremyliao.liveeventbus.LiveEventBus
 
 class OrderGoodsDetailModel(application: Application) :
     BaseViewModel(application) {
@@ -124,6 +126,8 @@ class OrderGoodsDetailModel(application: Application) :
             OrderNetApi.service.saveShopping(params)
         }, {
             hintMsg.value = "商品加入成功"
+            LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).post(0)
+        }, loadingMessage = "发送中...")
         })
     }
 

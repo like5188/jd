@@ -108,11 +108,11 @@ class DialogShopCar(context: Context) : BaseDialog(context) {
                     onConfirmNumListener?.onConfirm(item.id,pending_join_quantity){
                         if (it) {
                             item.join_quantity = pending_join_quantity
+                            updateTotalPrice(list)
                         }
                         tvSub?.isClickable = true
                         tvAdd?.isClickable = true
                         mTypeAdapter.notifyDataSetChanged()
-                        updateTotalPrice(list)
                     }
                 }
             } else if (view.id == R.id.tvAdd) {
@@ -126,11 +126,11 @@ class DialogShopCar(context: Context) : BaseDialog(context) {
                     onConfirmNumListener?.onConfirm(item.id,pending_join_quantity){
                         if (it) {
                             item.join_quantity = pending_join_quantity
+                            updateTotalPrice(list)
                         }
                         tvSub?.isClickable = true
                         tvAdd?.isClickable = true
                         mTypeAdapter.notifyDataSetChanged()
-                        updateTotalPrice(list)
                     }
                 }
             }
@@ -190,11 +190,11 @@ class DialogShopCar(context: Context) : BaseDialog(context) {
                 onConfirmNumListener?.onConfirm(item.id,pending_join_quantity){
                     if (it) {
                         item.join_quantity = pending_join_quantity
+                        updateTotalPrice(list)
                     }
                     tvSub?.isClickable = true
                     tvAdd?.isClickable = true
                     mTypeAdapter.notifyDataSetChanged()
-                    updateTotalPrice(list)
                 }
             } else if (view.id == R.id.tvAdd) {
                 val tvSub = mTypeAdapter.getViewByPosition(position, R.id.tvSub)
@@ -206,11 +206,11 @@ class DialogShopCar(context: Context) : BaseDialog(context) {
                 onConfirmNumListener?.onConfirm(item.id,pending_join_quantity){
                     if (it) {
                         item.join_quantity = pending_join_quantity
+                        updateTotalPrice(list)
                     }
                     tvSub?.isClickable = true
                     tvAdd?.isClickable = true
                     mTypeAdapter.notifyDataSetChanged()
-                    updateTotalPrice(list)
                 }
             }
         }

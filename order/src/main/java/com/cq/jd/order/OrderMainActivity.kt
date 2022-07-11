@@ -38,10 +38,12 @@ import com.cq.jd.order.entities.Recommend
 import com.cq.jd.order.entities.ShopCarListBean
 import com.cq.jd.order.entities.ShopDetailBean
 import com.cq.jd.order.entities.event.IndexRefreshEventEvent
+import com.cq.jd.order.util.EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS
 import com.cq.jd.share.ShareUtil
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.tabs.TabLayout
 import com.gyf.immersionbar.ImmersionBar
+import com.jeremyliao.liveeventbus.LiveEventBus
 import com.lxj.xpopup.XPopup
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -122,7 +124,7 @@ class OrderMainActivity :
                     return@setOnClickListener
                 }
                 if (shopCarData?.list == null || shopCarData?.list!!.size == 0) {
-                    ToastUtils.showShort("购物车内有您想要的商品，快去挑选商品吧")
+                    ToastUtils.showShort("购物车空空如也，去挑选您喜欢的商品吧")
                     return@setOnClickListener
                 }
                 val list = shopCarData?.list
@@ -211,6 +213,10 @@ class OrderMainActivity :
             }
         }
         initRecommendAdapter()
+
+        LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this){
+            mViewModel.getShopping(indexId)
+        }
     }
 
     override fun loadData() {
