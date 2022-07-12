@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.common.library.ui.activity.BaseVmFragment
 import com.common.library.util.glide.ImageUtils
+import com.cq.jd.order.OrderMainActivity
 import com.cq.jd.order.R
 import com.cq.jd.order.activity.goods.OrderConfirmActivity
 import com.cq.jd.order.activity.goods.OrderGoodsDetailActivity
@@ -108,6 +109,9 @@ class OrderGoodsClsFragment :
         }
         adapter.setOnItemClickListener { _, _, position ->
             val intent = Intent(requireContext(), OrderGoodsDetailActivity::class.java)
+            OrderMainActivity.shopDetailBean?.let {
+                intent.putExtra("shopDetailBean", it)
+            }
             intent.putExtra("goodsId",adapter.getItem(position).id)
             intent.putExtra("merchant_id",adapter.getItem(position).merchant_id)
             intent.putExtra("merchant_id",adapter.getItem(position).merchant_id)

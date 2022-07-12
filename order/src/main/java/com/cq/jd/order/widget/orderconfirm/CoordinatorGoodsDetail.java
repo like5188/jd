@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
@@ -45,6 +46,11 @@ public class CoordinatorGoodsDetail extends CoordinatorLayout {
     private ImageView ivMore;
     private MZBannerView banner;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
+    private LinearLayout llSearch;
+
+    public LinearLayout getLlSearch() {
+        return llSearch;
+    }
 
     public CoordinatorGoodsDetail(Context context) {
         super(context);
@@ -77,6 +83,7 @@ public class CoordinatorGoodsDetail extends CoordinatorLayout {
         ivMore = (ImageView) findViewById(R.id.ivMore);
         appBar = (AppBarLayout) findViewById(R.id.appBar);
         banner = (MZBannerView) findViewById(R.id.banner);
+        llSearch = (LinearLayout) findViewById(R.id.llSearch);
     }
 
     public MZBannerView getBanner() {

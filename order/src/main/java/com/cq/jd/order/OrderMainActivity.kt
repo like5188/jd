@@ -58,8 +58,10 @@ class OrderMainActivity :
     private var indexId = 39
     private var shopCarData: ShopCarListBean? = null
     private var dialogShopCar: DialogShopCar? = null
-    private var shopDetailBean: ShopDetailBean? = null
 
+   companion object{
+        var shopDetailBean: ShopDetailBean? = null
+   }
 
     private val recommendAdapter = object :
         BaseQuickAdapter<Recommend, BaseDataBindingHolder<OrderItemRecommendBinding>>(R.layout.order_item_recommend) {
@@ -141,8 +143,8 @@ class OrderMainActivity :
                     }
                 }
                 dialogShopCar?.setOnConfirmListener(object : DialogShopCar.OnConfirmNumListener {
-                    override fun onConfirm(id: Int, num: Int, callback:(Boolean)->Unit) {
-                        mViewModel.editShopping(id, num){
+                    override fun onConfirm(id: Int, num: Int, callback: (Boolean) -> Unit) {
+                        mViewModel.editShopping(id, num) {
                             callback(it)
                         }
                     }
@@ -171,7 +173,7 @@ class OrderMainActivity :
                                                 32
                                             )
                                         }
-                                    }.onSuccess {it1->
+                                    }.onSuccess { it1 ->
 
                                         ShareUtil.shareWebUrl(
                                             this@OrderMainActivity,
@@ -205,7 +207,7 @@ class OrderMainActivity :
                 if (shopDetailBean == null) {
                     return@setOnClickListener
                 }
-                if (mViewModel.collectStatus.value !="0") {
+                if (mViewModel.collectStatus.value != "0") {
                     mViewModel.removeFavorites(mViewModel.collectStatus.value!!)
                 } else {
                     mViewModel.saveFavorites(indexId, shopDetailBean?.title!!)
@@ -214,7 +216,7 @@ class OrderMainActivity :
         }
         initRecommendAdapter()
 
-        LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this){
+        LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this) {
             mViewModel.getShopping(indexId)
         }
     }
@@ -228,11 +230,11 @@ class OrderMainActivity :
     override fun createObserver() {
         mViewModel.apply {
             //收藏
-            collectStatus.observe(this@OrderMainActivity){
-                if(it!="0"){
+            collectStatus.observe(this@OrderMainActivity) {
+                if (it != "0") {
                     mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList =
                         ColorStateList.valueOf(Color.parseColor("#FFAA32"))
-                }else{
+                } else {
                     mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList = null
                 }
             }
@@ -256,8 +258,11 @@ class OrderMainActivity :
             shopDetailInfo.observe(this@OrderMainActivity) {
                 shopDetailBean = it
                 //头部信息
-                if(!it.environment_pic.isNullOrEmpty()){
-                    ImageUtils.loadImage(it.environment_pic[0], mDataBinding.mCoordinatorTabLayout.imageView)
+                if (!it.environment_pic.isNullOrEmpty()) {
+                    ImageUtils.loadImage(
+                        it.environment_pic[0],
+                        mDataBinding.mCoordinatorTabLayout.imageView
+                    )
                 }
                 ImageUtils.loadImage(it.head_pic, mDataBinding.mCoordinatorTabLayout.ivLogo)
 //                ImageUtils.loadImage(it.head_pic, mDataBinding.mCoordinatorTabLayout.ivLogo)
@@ -267,7 +272,7 @@ class OrderMainActivity :
                 mDataBinding.mCoordinatorTabLayout.tvNum.text = "销量${it.sales_volume}"
                 mDataBinding.mCoordinatorTabLayout.getsRating().grade = it.evaluate_score
                 mDataBinding.mCoordinatorTabLayout.tvSinglePrice.text = "${it.average}/人"
-                if (it.favorites !="0") {
+                if (it.favorites != "0") {
                     mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList =
                         ColorStateList.valueOf(Color.parseColor("#FFAA32"))
                 } else {
@@ -367,9 +372,14 @@ class OrderMainActivity :
         }
         recommendAdapter.setOnItemClickListener { _, _, position ->
             val item = recommendAdapter.getItem(position)
+            if (shopDetailBean == null) {
+                return@setOnItemClickListener
+            }
+
             val intent = Intent(this, OrderGoodsDetailActivity::class.java)
-            intent.putExtra("goodsId",item.id)
-            intent.putExtra("merchant_id",item.merchant_id)
+            intent.putExtra("goodsId", item.id)
+            intent.putExtra("shopDetailBean", shopDetailBean)
+            intent.putExtra("merchant_id", item.merchant_id)
             startActivity(intent)
         }
     }

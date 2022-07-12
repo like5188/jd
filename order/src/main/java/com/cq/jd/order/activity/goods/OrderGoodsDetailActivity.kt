@@ -28,10 +28,7 @@ import com.cq.jd.order.databinding.OrderItemGoodsCommentListBinding
 import com.cq.jd.order.dialog.DialogChooseGoodsType
 import com.cq.jd.order.dialog.DialogShopCar
 import com.cq.jd.order.dialog.PopupGoodsMenu
-import com.cq.jd.order.entities.ClsGoodsBean
-import com.cq.jd.order.entities.EvaluateBean
-import com.cq.jd.order.entities.GoodsDetailInfo
-import com.cq.jd.order.entities.ShopCarListBean
+import com.cq.jd.order.entities.*
 import com.cq.jd.order.util.EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS
 import com.cq.jd.order.widget.mzbanner.BannerViewHolder
 import com.cq.jd.share.ShareUtil
@@ -51,14 +48,25 @@ class OrderGoodsDetailActivity :
     private var clsGoodsBean: ClsGoodsBean? = null
     private var shopCarData: ShopCarListBean? = null
     private var dialogShopCar: DialogShopCar? = null
-
+    companion object{
+         var shopDetailBean: ShopDetailBean? = null
+    }
     override fun initWidget(savedInstanceState: Bundle?) {
         mDataBinding.model = mViewModel
+        shopDetailBean = intent.getSerializableExtra("shopDetailBean") as ShopDetailBean?
         mDataBinding.apply {
             headerLayout
                 .setTitle("")
                 .setBackEnable(true)
 //                .setTopImageRes(R.drawable.indexbg)
+            headerLayout.llSearch.setOnClickListener {//搜索
+                if (shopDetailBean == null) {
+                    return@setOnClickListener
+                }
+                val intent = Intent(this@OrderGoodsDetailActivity, OrderSearchActivity::class.java)
+                intent.putExtra("shopDetailBean", shopDetailBean)
+                startActivity(intent)
+            }
             llShopCar.setOnClickListener {//购物车
                 if (shopCarData == null) {
                     return@setOnClickListener
@@ -330,7 +338,9 @@ class OrderGoodsDetailActivity :
                 merchantId = it.merchant_id
                 mViewModel.getShopping(merchantId)
                 ImageUtils.loadImage(it.merchant.head_pic, mDataBinding.ivGoodsCover)
+
                 mDataBinding.tvNum.text = it.stock_sales.toString()
+
                 mDataBinding.tvSinglePrice.text = it.price
                 mDataBinding.tvGoodsName.text = it.title
                 mDataBinding.tvContent.text = it.remark
