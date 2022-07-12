@@ -5,7 +5,7 @@ data class EvaluationList(
     val create_at: String,
     val deleted: Int,
     val deleted_at: String,
-    val goods_id: Int,
+//    val goods_id: Int,
     val id: Int,
     val identity: Int,
     val is_reply: Int,

@@ -1,5 +1,4 @@
 package com.cq.jd.order.activity.comment
-
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -8,7 +7,6 @@ import com.common.library.ui.activity.BaseVmFragment
 import com.common.library.util.glide.ImageUtils
 import com.cq.jd.order.R
 import com.cq.jd.order.databinding.*
-import com.cq.jd.order.entities.ClsGoodsBean
 import com.cq.jd.order.entities.EvaluationList
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
