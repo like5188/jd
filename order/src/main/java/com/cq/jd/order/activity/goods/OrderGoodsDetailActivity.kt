@@ -226,28 +226,28 @@ class OrderGoodsDetailActivity :
 
             headerLayout.getmToolbar().setNavigationOnClickListener { finish() }
 
-            headerLayout.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { _,
-                                                                                                  verticalOffset ->
-                if (verticalOffset < 0) {
+
+            ImmersionBar.with(this@OrderGoodsDetailActivity)
+                .statusBarColor(R.color.colorMain)
+                .init()
+//            headerLayout.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { _,
+//                                                                                                  verticalOffset ->
+//                if (verticalOffset < 0) {
 //                    headerLayout.getmToolbar().setBackgroundColor(
 //                        ContextCompat.getColor(this@OrderGoodsDetailActivity, R.color.colorMain)
 //                    )
-
-//                    ImmersionBar.with(this@OrderGoodsDetailActivity)
-//                        .statusBarColor(R.color.colorMain)
-//                        .init()
-                } else {
-//                    headerLayout.getmToolbar().setBackgroundColor(
-//                        ContextCompat.getColor(
-//                            this@OrderGoodsDetailActivity,
-//                            R.color.transparent
-//                        )
-//                    )
-//                    ImmersionBar.with(this@OrderGoodsDetailActivity)
-//                        .transparentStatusBar()
-//                        .init()
-                }
-            })
+//                } else {
+////                    headerLayout.getmToolbar().setBackgroundColor(
+////                        ContextCompat.getColor(
+////                            this@OrderGoodsDetailActivity,
+////                            R.color.transparent
+////                        )
+////                    )
+////                    ImmersionBar.with(this@OrderGoodsDetailActivity)
+////                        .transparentStatusBar()
+////                        .init()
+//                }
+//            })
 
         }
         initAdapter()
