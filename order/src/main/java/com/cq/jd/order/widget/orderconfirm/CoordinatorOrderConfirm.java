@@ -127,7 +127,6 @@ public class CoordinatorOrderConfirm extends CoordinatorLayout {
         int contentScrimColor = typedArray.getColor(
                 R.styleable.CoordinatorTabLayout_contentScrim, typedValue.data);
         mCollapsingToolbarLayout.setContentScrimColor(contentScrimColor);
-
         typedArray.recycle();
     }
 

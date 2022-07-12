@@ -1,6 +1,7 @@
 package com.cq.jd.order.dialog.adapter
 
 import android.graphics.Color
+import android.text.TextUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.common.library.util.glide.ImageUtils
@@ -19,7 +20,13 @@ class OrderClsType2Adapter :
                 R.id.tvTypeName, if (item.choose == 1)
                     Color.parseColor("#ffffff") else Color.parseColor("#13202D")
             )
-            ImageUtils.loadImage(item.attribute_pic, holder.getView(R.id.ivGoodsCover))
+            if(!TextUtils.isEmpty(item.attribute_pic)){
+                holder.setVisible(R.id.ivGoodsCover,true)
+                ImageUtils.loadImage(item.attribute_pic, holder.getView(R.id.ivGoodsCover))
+            }else{
+                holder.setGone(R.id.ivGoodsCover,true)
+            }
+
             setText(R.id.tvTypeName, item.spec_attribute)
             setGone(R.id.ivState, item.goods_stock != 0)
         }

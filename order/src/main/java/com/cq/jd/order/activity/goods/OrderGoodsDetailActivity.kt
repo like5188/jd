@@ -58,7 +58,7 @@ class OrderGoodsDetailActivity :
             headerLayout
                 .setTitle("")
                 .setBackEnable(true)
-
+//                .setTopImageRes(R.drawable.indexbg)
             llShopCar.setOnClickListener {//购物车
                 if (shopCarData == null) {
                     return@setOnClickListener
@@ -229,30 +229,28 @@ class OrderGoodsDetailActivity :
             headerLayout.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { _,
                                                                                                   verticalOffset ->
                 if (verticalOffset < 0) {
-                    headerLayout.getmToolbar().setBackgroundColor(
-                        ContextCompat.getColor(this@OrderGoodsDetailActivity, R.color.colorMain)
-                    )
+//                    headerLayout.getmToolbar().setBackgroundColor(
+//                        ContextCompat.getColor(this@OrderGoodsDetailActivity, R.color.colorMain)
+//                    )
 
-                    ImmersionBar.with(this@OrderGoodsDetailActivity)
-                        .statusBarColor(R.color.colorMain)
-                        .init()
+//                    ImmersionBar.with(this@OrderGoodsDetailActivity)
+//                        .statusBarColor(R.color.colorMain)
+//                        .init()
                 } else {
-                    headerLayout.getmToolbar().setBackgroundColor(
-                        ContextCompat.getColor(
-                            this@OrderGoodsDetailActivity,
-                            R.color.transparent
-                        )
-                    )
-                    ImmersionBar.with(this@OrderGoodsDetailActivity)
-                        .transparentStatusBar()
-                        .init()
+//                    headerLayout.getmToolbar().setBackgroundColor(
+//                        ContextCompat.getColor(
+//                            this@OrderGoodsDetailActivity,
+//                            R.color.transparent
+//                        )
+//                    )
+//                    ImmersionBar.with(this@OrderGoodsDetailActivity)
+//                        .transparentStatusBar()
+//                        .init()
                 }
             })
 
         }
-
         initAdapter()
-
         LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this) {
             mViewModel.getShopping(merchantId)
         }

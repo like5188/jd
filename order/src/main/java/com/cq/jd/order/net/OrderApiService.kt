@@ -37,7 +37,7 @@ interface OrderApiService {
     suspend fun goodsDetail(@Query("goods_id")id:Int): ApiResponse<GoodsDetailInfo> //商户详情-資質
 
     @GET("/evaluate/mall/index")
-    suspend fun evaluateIndex(@QueryMap map: HashMap<String, Any>): ApiResponse<List<EvaluationList>> //商户详情-資質
+    suspend fun evaluateIndex(@QueryMap map: HashMap<String, Any>): ApiResponse<List<EvaluationList>>
 
     @GET("/merchant/mall/getDistance")
     suspend fun getDistance(@QueryMap map: HashMap<String, Any>): ApiResponse<DistanceInfo> //商户详情-資質

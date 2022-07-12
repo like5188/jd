@@ -12,6 +12,8 @@
         android:id="@+id/llClsBg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="60dp"
+        android:gravity="center"
         android:background="@drawable/order_shape_btn_gray"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="horizontal"
@@ -30,8 +32,6 @@
             android:scaleType="centerCrop"
             app:riv_corner_radius="3dp"
             app:riv_oval="false" />
-
-
         <TextView
             android:id="@+id/tvTypeName"
             android:layout_width="wrap_content"

@@ -28,7 +28,9 @@ class OrderFragmentGoodsComment :
             item: EvaluationList,
         ) {
             holder.dataBinding?.apply {
-                ImageUtils.loadImage(item.user.headimg, ivHead)
+                item.user?.headimg?.let {
+                    ImageUtils.loadImage(item.user.headimg, ivHead)
+                }
                 tvName.text = item.user.nickname
                 tvTime.text = item.create_at
                 tvContent.text = item.content
