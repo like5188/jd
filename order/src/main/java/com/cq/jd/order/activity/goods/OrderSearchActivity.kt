@@ -297,6 +297,7 @@ class OrderSearchActivity :
                     DialogChooseGoodsType.OnAddShopCarResultListener {
                     override fun onResult(type: Int, ids: String, num: Int) {
                         if (type == 1) {
+
                             mViewModel.saveShopping(item.id, merchantId, ids, num.toString())
                         } else {
                             val intent =
