@@ -231,13 +231,13 @@
                     android:paddingTop="5dp"
                     android:paddingEnd="45dp"
                     android:paddingBottom="5dp">
-
                     <EditText
                         android:id="@+id/etSearch"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:maxWidth="150dp"
                         android:drawableStart="@mipmap/ic_search"
                         android:drawablePadding="15dp"
                         android:focusable="true"
@@ -247,7 +247,7 @@
                         android:inputType="text"
                         android:maxLines="1"
                         android:textColor="@color/white"
-                        android:textCursorDrawable="@null"
+                        android:textCursorDrawable="@drawable/edit_cursor_default"
                         android:textSize="16sp" />
 
                 </LinearLayout>
