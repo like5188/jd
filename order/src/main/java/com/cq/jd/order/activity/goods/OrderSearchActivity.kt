@@ -41,8 +41,6 @@ import com.lxj.xpopup.XPopup
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
-
 class OrderSearchActivity :
     BaseVmActivity<OrderSearchModel, OrderActivitySearchBinding>(R.layout.order_activity_search) {
 

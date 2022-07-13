@@ -18,7 +18,6 @@ import com.zhw.http.UrlHelper
             BaseNetApi()
         }
 
-
         val service: BaseNetApiService by lazy {
             instance.getApi(BaseNetApiService::class.java, UrlHelper.getBaseUrl())
         }
