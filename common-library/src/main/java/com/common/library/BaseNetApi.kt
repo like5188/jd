@@ -8,7 +8,6 @@ import com.zhw.http.UrlHelper
  * Supported By 宇宙无敌大公司.
  * Official Website: www.www.cn.
  * Describe
- *
  * @author 又是谁写的
  */
  class BaseNetApi: NetApi(){
