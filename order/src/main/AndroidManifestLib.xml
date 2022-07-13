@@ -11,8 +11,10 @@
         <activity android:name="com.cq.jd.order.activity.coupon.OrderCouponActivity"/>
         <activity android:name="com.cq.jd.order.activity.shop.OrderShopCertificateActivity"/>
         <activity android:name="com.cq.jd.order.activity.goods.OrderRecommendActivity"/>
-        <activity android:name="com.cq.jd.order.activity.goods.OrderGoodsDetailActivity"/>
-        <activity android:name="com.cq.jd.order.activity.goods.OrderSearchActivity"/>
+        <activity android:name="com.cq.jd.order.activity.goods.OrderGoodsDetailActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name="com.cq.jd.order.activity.goods.OrderSearchActivity"
+            android:launchMode="singleInstance"/>
         <activity android:name="com.cq.jd.order.activity.goods.OrderConfirmActivity"/>
         <activity android:name="com.cq.jd.order.activity.shop.OrderShopDetailActivity"/>
         <activity android:name="com.cq.jd.order.activity.complaint.OrderShopComplaintActivity"/>

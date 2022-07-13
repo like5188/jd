@@ -51,6 +51,14 @@ class OrderGoodsDetailActivity :
     companion object{
          var shopDetailBean: ShopDetailBean? = null
     }
+
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        shopDetailBean = intent.getSerializableExtra("shopDetailBean") as ShopDetailBean?
+        goodsId = intent.getIntExtra("goodsId", 0)
+        mViewModel.licenseDetail(goodsId)
+    }
     override fun initWidget(savedInstanceState: Bundle?) {
         mDataBinding.model = mViewModel
         shopDetailBean = intent.getSerializableExtra("shopDetailBean") as ShopDetailBean?
@@ -263,6 +271,8 @@ class OrderGoodsDetailActivity :
             mViewModel.getShopping(merchantId)
         }
     }
+
+
 
     override fun onResume() {
         super.onResume()

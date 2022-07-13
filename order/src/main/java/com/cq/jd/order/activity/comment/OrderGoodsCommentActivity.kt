@@ -1,5 +1,6 @@
 package com.cq.jd.order.activity.comment
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
@@ -8,6 +9,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.common.library.ui.activity.BaseVmActivity
 import com.cq.jd.order.R
+import com.cq.jd.order.activity.goods.OrderGoodsDetailActivity
+import com.cq.jd.order.activity.goods.OrderSearchActivity
 import com.cq.jd.order.databinding.OrderActivityGoodsCommentBinding
 import com.cq.jd.order.dialog.DialogOrderDistanceShow
 import com.google.android.material.tabs.TabLayout
@@ -21,7 +24,6 @@ class OrderGoodsCommentActivity :
         setTitleText("商品评论")
         mDataBinding.apply {
             val titles = mutableListOf("全部", "好评", "中/差评")
-
             val arrayList = ArrayList<Fragment>()
             val orderFragmentGoodsComment = OrderFragmentGoodsComment()
             val bundle = Bundle()
@@ -64,9 +66,7 @@ class OrderGoodsCommentActivity :
                         val tv: TextView = tab.customView!!.findViewById(R.id.tv_top_item)
                         tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f) //直接用setTextSize(22)也一样
                     }
-
                 }
-
                 override fun onTabUnselected(tab: TabLayout.Tab?) {
                     if(tab!!.customView != null) {
                         val tv: TextView = tab.customView!!.findViewById(R.id.tv_top_item)
@@ -79,6 +79,17 @@ class OrderGoodsCommentActivity :
                 }
 
             })
+            toolbar.setNavigationOnClickListener{
+                finish()
+            }
+            llSearch.setOnClickListener {//搜索
+                if (OrderGoodsDetailActivity.shopDetailBean == null) {
+                    return@setOnClickListener
+                }
+                val intent = Intent(this@OrderGoodsCommentActivity, OrderSearchActivity::class.java)
+                intent.putExtra("shopDetailBean", OrderGoodsDetailActivity.shopDetailBean)
+                startActivity(intent)
+            }
         }
 //        val dialogOrderDistanceShow = DialogOrderDistanceShow(this)
 //        dialogOrderDistanceShow.show()

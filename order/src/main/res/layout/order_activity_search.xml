@@ -14,6 +14,7 @@
         android:id="@+id/mCoordinatorTabLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colororderbg"
         tools:context=".OrderMainActivity">
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -27,7 +28,7 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                />
+                android:background="@color/white"/>
 
         </com.scwang.smart.refresh.layout.SmartRefreshLayout>
 

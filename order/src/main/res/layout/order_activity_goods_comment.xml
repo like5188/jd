@@ -26,8 +26,57 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+<!--            <include layout="@layout/order_base_view_title" />-->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="20dp"
+                android:fitsSystemWindows="false"
+                android:elevation="0dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:navigationIcon="@mipmap/icbackwhite"
+                android:navigationIcon="@mipmap/icbackwhite"
+                app:titleMargin="15dp"
+                android:background="@color/colorMain"
+                android:gravity="center"
+                app:layout_collapseMode="pin">
+                <LinearLayout
+                    android:id="@+id/llSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/order_shape_search_bg"
+                    android:paddingStart="45dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="45dp"
+                    android:paddingBottom="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@mipmap/ic_search"
+                        android:textColor="#ffffff"
+                        android:drawablePadding="15dp"
+                        android:gravity="center"
+                        android:hint="搜索本店商品"
+                        android:textSize="16sp" />
+                </LinearLayout>
+                <!--                <TextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_gravity="center"-->
+                <!--                    android:text="商品详情"-->
+                <!--                    android:textColor="#ffffffff"-->
+                <!--                    android:textSize="18sp" />-->
+                <ImageView
+                    android:id="@+id/ivMore"
+                    android:layout_width="wrap_content"
+                    android:padding="10dp"
+                    android:layout_gravity="end"
+                    android:src="@mipmap/ic_share_more"
+                    android:layout_height="wrap_content"/>
+            </androidx.appcompat.widget.Toolbar>
 
-            <include layout="@layout/order_base_view_title" />
 
             <LinearLayout
                 android:layout_width="match_parent"

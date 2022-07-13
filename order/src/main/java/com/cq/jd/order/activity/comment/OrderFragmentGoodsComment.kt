@@ -1,5 +1,6 @@
 package com.cq.jd.order.activity.comment
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
@@ -56,6 +57,18 @@ class OrderFragmentGoodsComment :
     override fun createObserver() {
        mViewModal.apply {
            evaluationList.observe(requireActivity()) {
+               if((page!=1) and (it.isNullOrEmpty())){
+                   mViewBinding.llNoMoreData.visibility= View.VISIBLE
+                   mViewBinding.smartRefresh.setEnableLoadMore(false)
+//                   mViewBinding.smartRefresh.setNoMoreData(true)
+               }else{
+                   if(it.isNullOrEmpty()){
+                       mViewBinding.smartRefresh.setEnableLoadMore(false)
+                   }else{
+                       mViewBinding.smartRefresh.setEnableLoadMore(true)
+                   }
+                   mViewBinding.llNoMoreData.visibility= View.GONE
+               }
                if (it != null && it.size > 0) {
                    if (page == 1) {
                        adapter.setNewInstance(it as MutableList<EvaluationList>)
@@ -74,6 +87,7 @@ class OrderFragmentGoodsComment :
         mViewBinding.apply {
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerView.adapter = adapter
+            adapter.setEmptyView(R.layout.base_loading_layout_empty)
             smartRefresh.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
                 override fun onRefresh(refreshLayout: RefreshLayout) {
                     page = 1

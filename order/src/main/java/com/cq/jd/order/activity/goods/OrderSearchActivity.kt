@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
@@ -20,6 +21,7 @@ import com.common.library.dialog.ShareDialog
 import com.common.library.ui.activity.BaseVmActivity
 import com.common.library.util.Util
 import com.common.library.util.glide.ImageUtils
+import com.cq.jd.order.OrderMainActivity
 import com.cq.jd.order.R
 import com.cq.jd.order.activity.complaint.OrderShopComplaintActivity
 import com.cq.jd.order.databinding.OrderActivitySearchBinding
@@ -71,11 +73,21 @@ class OrderSearchActivity :
         }
     }
 
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        shopDetailBean = intent.getSerializableExtra("shopDetailBean") as ShopDetailBean?
+        indexId = shopDetailBean?.id!!
+        loadData()
+    }
+
     override fun initWidget(savedInstanceState: Bundle?) {
         mDataBinding.model = mViewModel
         shopDetailBean = intent.getSerializableExtra("shopDetailBean") as ShopDetailBean?
         indexId = shopDetailBean?.id!!
         mDataBinding.apply {
+
+
+
             mCoordinatorTabLayout.setTranslucentStatusBar(this@OrderSearchActivity)
                 .setTitle("")
                 .setBackEnable(true)
@@ -100,7 +112,7 @@ class OrderSearchActivity :
                                                 32
                                             )
                                         }
-                                    }.onSuccess {it1->
+                                    }.onSuccess { it1 ->
 
                                         ShareUtil.shareWebUrl(
                                             this@OrderSearchActivity,
@@ -130,12 +142,12 @@ class OrderSearchActivity :
             }
 
             mDataBinding.mCoordinatorTabLayout.ivCollect.setOnClickListener {
-                if (shopDetailBean == null){
+                if (shopDetailBean == null) {
                     return@setOnClickListener
                 }
-                if (shopDetailBean?.favorites !="0"){
+                if (shopDetailBean?.favorites != "0") {
                     mViewModel.removeFavorites(indexId)
-                }else{
+                } else {
                     mViewModel.saveFavorites(indexId, shopDetailBean?.title!!)
                 }
             }
@@ -170,7 +182,7 @@ class OrderSearchActivity :
                 mCoordinatorTabLayout.tvNum.text = "销量${this.sales_volume}"
                 mCoordinatorTabLayout.getsRating().grade = this.evaluate_score
                 mCoordinatorTabLayout.tvSinglePrice.text = "${this.average}/人"
-                if (this.favorites!= "0") {
+                if (this.favorites != "0") {
                     mCoordinatorTabLayout.ivCollect.imageTintList =
                         ColorStateList.valueOf(Color.parseColor("#FFAA32"))
                 } else {
@@ -178,22 +190,39 @@ class OrderSearchActivity :
                 }
                 mCoordinatorTabLayout.llTag.addView(initTagView("随时退"))
             }
-
-            mCoordinatorTabLayout.etSearch.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            mCoordinatorTabLayout.etSearch.setOnEditorActionListener { v, actionId, event ->
+                page = 1
+                val searchContent = mCoordinatorTabLayout.etSearch.text.toString()
+                if (!TextUtils.isEmpty(searchContent)) {
+                    mViewModel.goodsList(searchContent, indexId, 1)
                 }
+                false
+            }
 
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                }
-
-                override fun afterTextChanged(p0: Editable?) {
-                    page = 1
-                    if (!TextUtils.isEmpty(p0.toString())) {
-                        mViewModel.goodsList(p0.toString(), indexId, 1)
-                    }
-                }
-
-            })
+//            v, keyCode, event ->
+//                if(keyCode==KeyEvent.KEYCODE_ENTER){
+//                    page = 1
+//                    val searchContent =  mCoordinatorTabLayout.etSearch.text.toString()
+////                    if (!TextUtils.isEmpty(searchContent)) {
+//                        mViewModel.goodsList(searchContent, indexId, 1)
+////                    }
+//                }
+//                false }
+//            mCoordinatorTabLayout.etSearch.addTextChangedListener(object : TextWatcher {
+//                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                }
+//
+//                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                }
+//
+//                override fun afterTextChanged(p0: Editable?) {
+//                    page = 1
+//                    if (!TextUtils.isEmpty(p0.toString())) {
+//                        mViewModel.goodsList(p0.toString(), indexId, 1)
+//                    }
+//                }
+//
+//            })
 
             smartRefresh.setOnLoadMoreListener {
                 val key = mCoordinatorTabLayout.etSearch.text.toString()
@@ -226,8 +255,8 @@ class OrderSearchActivity :
                     }
                 }
                 dialogShopCar?.setOnConfirmListener(object : DialogShopCar.OnConfirmNumListener {
-                    override fun onConfirm(id: Int, num: Int, callback:(Boolean)->Unit) {
-                        mViewModel.editShopping(id, num){
+                    override fun onConfirm(id: Int, num: Int, callback: (Boolean) -> Unit) {
+                        mViewModel.editShopping(id, num) {
                             callback(it)
                         }
                     }
@@ -240,7 +269,7 @@ class OrderSearchActivity :
 
         initAdapter()
 
-        LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this){
+        LiveEventBus.get<Int>(EVENT_BUS_KEY_SAVE_SHOPPING_SUCCESS).observe(this) {
             mViewModel.getShopping(indexId)
         }
     }
@@ -255,7 +284,7 @@ class OrderSearchActivity :
             val intent = Intent(this, OrderGoodsDetailActivity::class.java)
             intent.putExtra("goodsId", adapter.getItem(position).id)
             intent.putExtra("merchant_id", adapter.getItem(position).merchant_id)
-            intent.putExtra("merchant_id", adapter.getItem(position).merchant_id)
+            intent.putExtra("shopDetailBean", OrderMainActivity.shopDetailBean)
             startActivity(intent)
         }
         adapter.setOnItemChildClickListener { _, view, position ->
@@ -268,8 +297,8 @@ class OrderSearchActivity :
                     DialogChooseGoodsType.OnAddShopCarResultListener {
                     override fun onResult(type: Int, ids: String, num: Int) {
                         if (type == 1) {
-                            mViewModel.saveShopping(item.id,merchantId,ids,num.toString())
-                        }else{
+                            mViewModel.saveShopping(item.id, merchantId, ids, num.toString())
+                        } else {
                             val intent =
                                 Intent(
                                     this@OrderSearchActivity,
@@ -297,10 +326,10 @@ class OrderSearchActivity :
 
         mViewModel.apply {
             collectStatus.observe(this@OrderSearchActivity) {
-                if(it!="0"){
+                if (it != "0") {
                     mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList =
                         ColorStateList.valueOf(Color.parseColor("#FFAA32"))
-                }else{
+                } else {
                     mDataBinding.mCoordinatorTabLayout.ivCollect.imageTintList = null
                 }
             }
