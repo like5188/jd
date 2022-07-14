@@ -100,12 +100,13 @@
 
         </LinearLayout>
 
-        <CheckBox
+        <RadioButton
             android:id="@+id/radioButton1"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:background="@drawable/order_coupon_choose_state"
             android:button="@null"
+            android:clickable="false"
             android:checked="false" />
 
     </LinearLayout>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.Gravity
 import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -62,9 +63,10 @@ class DialogChooseCoupon(context: Context) : BaseDialog(context) {
                 override fun convert(holder: BaseViewHolder, item: CouponWaitUseBean) {
                     holder.setText(R.id.tvPrice, item.preferential_amount)
                     holder.setText(R.id.tVCondition, item.coupon.title)
+
                     holder.setText(R.id.tvType, item.coupon.content)
                     holder.setText(R.id.tvTime, "使用期限：" + item.coupon.end_at)
-                    val radioButton1 = holder.getView<CheckBox>(R.id.radioButton1)
+                    val radioButton1 = holder.getView<RadioButton>(R.id.radioButton1)
                     radioButton1.isChecked = item.orderType == 1
                 }
 

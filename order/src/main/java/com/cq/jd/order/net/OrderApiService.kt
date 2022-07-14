@@ -17,7 +17,6 @@ import retrofit2.http.*
 interface OrderApiService {
 
 
-
     @GET("/merchant/mall/getMerchant")
     suspend fun merchantDetail(@QueryMap map: HashMap<String, Any>): ApiResponse<ShopDetailBean> //商户详情
 
@@ -31,10 +30,10 @@ interface OrderApiService {
     suspend fun merchantGoods(@QueryMap map: HashMap<String, Any>): ApiResponse<List<ClsGoodsBean>> //商户详情-分类列表
 
     @GET("/merchant/mall/getLicense")
-    suspend fun licenseDetail(@Query("id")id:Int): ApiResponse<List<LicenseInfoBean>> //商户详情-資質
+    suspend fun licenseDetail(@Query("id") id: Int): ApiResponse<List<LicenseInfoBean>> //商户详情-資質
 
     @GET("/goods/mall/getData")
-    suspend fun goodsDetail(@Query("goods_id")id:Int): ApiResponse<GoodsDetailInfo> //商户详情-資質
+    suspend fun goodsDetail(@Query("goods_id") id: Int): ApiResponse<GoodsDetailInfo> //商户详情-資質
 
     @GET("/evaluate/mall/index")
     suspend fun evaluateIndex(@QueryMap map: HashMap<String, Any>): ApiResponse<List<EvaluationList>>
@@ -43,7 +42,7 @@ interface OrderApiService {
     suspend fun getDistance(@QueryMap map: HashMap<String, Any>): ApiResponse<DistanceInfo> //商户详情-資質
 
     @GET("/coupon/mall/getNotUsed")
-    suspend fun couponWaitUse(@Query("type")type:Int): ApiResponse<List<CouponWaitUseBean>> //商户详情-待使用优惠券
+    suspend fun couponWaitUse(@Query("type") type: Int): ApiResponse<List<CouponWaitUseBean>> //商户详情-待使用优惠券
 
     @GET("/coupon/mall/getCoupon")
     suspend fun getCoupon(): ApiResponse<List<CouponNoLeadBean>> //商户详情-待领取优惠券
@@ -82,11 +81,11 @@ interface OrderApiService {
     suspend fun editShopping(@FieldMap map: HashMap<String, Any>): ApiResponse<Any> //商户详情-加入購物車
 
     @GET("/s_public/base/getPayType")
-    suspend fun getPayType(@Query("type")type:String ): ApiResponse<List<PayTypeBean>> //商户详情-加入購物車
+    suspend fun getPayType(@Query("type") type: String): ApiResponse<List<PayTypeBean>> //商户详情-加入購物車
 
     @POST("/coupon/mall/receiveCoupon")
     @FormUrlEncoded
-    suspend fun receiveCoupon(@Field("id")id:Int): ApiResponse<Any> //商户详情-加入購物車
+    suspend fun receiveCoupon(@Field("id") id: Int): ApiResponse<Any> //商户详情-加入購物車
 
     @POST("/complaint/mall/apply")
     @FormUrlEncoded
@@ -94,8 +93,6 @@ interface OrderApiService {
 
     @GET("/shopping/mall/remove")
     suspend fun removeShopping(@QueryMap map: HashMap<String, Any>): ApiResponse<Any> //商户详情-移除購物車
-
-
 
 
 }
